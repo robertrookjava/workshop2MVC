@@ -2,10 +2,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head >
-<title>Welcome to Spring MVC Blog</title>
+<title>Robert Rook</title>
 </head>
 <body>
-        <h1>Thymeleaf tutorial - Answer for exercise 12: forms</h1>
+        <h1>Ultimate Jazz </h1>
         <h2>Customer edition</h2>
         <!-- 
             Set the action attribute to "/exercise12/saveCustomer.html", and use
@@ -16,31 +16,41 @@
             <input type="hidden" />
             
             <!-- Use th:field to show *{firstName} -->
-            <label for="firstName">First name:</label>
-            <input type="text" />
+            <p>
+            <label for="invoer1">invoer1:</label>
+            <input type="text" name ="invoer1" />
+            </p>
             
             <!-- Use th:field to show *{lastName} -->
-            <label for="lastName">Last name:</label>
-            <input type="text" />
+            <p>
+            <label for="invoer2">invoer2:</label>
+            <input type="text" name ="invoer2" />
+            </p>
             
-            Genre:
-            <!-- Iterate on ${genders} -->
-            <div class="radio">
-                <!-- Use th:field to check *{gender} -->
-                <input type="radio" />
-                <label>Male</label>
-            </div>
+            <!-- Use th:field to show *{lastName} -->
+            <p>
+            <label for="invoer3">invoer3:</label>
+            <input type="text" name ="invoer3"/>
+            </p>
             
-            <label for="paymentMethod">Payment method:</label>
-            <!-- Use th:field to select *{paymentMethod} -->
-            <select>
-                <!-- Iterate on ${paymentMethods} -->
-                <option>Credit card</option>
-            </select>
+            <p>
+            <label for="invoer4">invoer4:</label>
+            <input type="text" name ="invoer4" />
+            </p>
             
-            <!-- Use th:field to show *{balance} -->
-            <label for="balance">Balance (dollars):</label>
-            <input type="text" />
+            <p>
+            <label for="invoer5">invoer5:</label>
+            <input type="text" name ="invoer5" />
+            </p>
+            
+            
+            <p>
+            <label for="invoer6">invoer6:</label>
+            <input type="text" name ="invoer6"/>
+            </p>
+            
+            
+            
             
             <input type="submit" />
         </form>

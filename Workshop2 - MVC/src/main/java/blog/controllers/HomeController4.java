@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import blog.services.*;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 //@Controller
@@ -35,18 +37,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //}
 
 @Controller
-public class HomeController {
+public class HomeController4 {
     
-@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String indexGet(Model model) {
+@RequestMapping(value = "/index4", method = RequestMethod.GET)
+    public String indexGet(Model model, HttpServletRequest request) {
         
-        return "index";
+        return "index4";
     }
     
-@RequestMapping(value = "/", method = RequestMethod.POST)
-    public String indexPost(Model model) {
+    /**
+     *
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String indexPost(Model model, HttpServletRequest request) {
+        String invoer1 = request.getParameter("invoer1");
+        String invoer2 = request.getParameter("invoer2");
+        String invoer3 = request.getParameter("invoer3");
+        String invoer4 = request.getParameter("invoer4");
+        String invoer5 = request.getParameter("invoer5");
+        String invoer6 = request.getParameter("invoer6");
         
-        return "index";
+        System.out.println("invoer1 = " + invoer1);
+        System.out.println("invoer2 = " + invoer2);
+        System.out.println("invoer3 = " + invoer3);
+        System.out.println("invoer4 = " + invoer4);
+        System.out.println("invoer5 = " + invoer5);
+        System.out.println("invoer6 = " + invoer6);
+        
+        return "output4";
     }    
     
     

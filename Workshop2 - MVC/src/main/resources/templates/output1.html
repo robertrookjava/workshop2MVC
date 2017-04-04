@@ -2,47 +2,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head >
-<title>Welcome to Spring MVC Blog</title>
+<title>Robert Rook</title>
 </head>
 <body>
-        <h1>Thymeleaf tutorial - Answer for exercise 12: forms</h1>
+        <h1>Robert Rook - Ultimate Jazz </h1>
         <h2>Customer edition</h2>
-        <!-- 
-            Set the action attribute to "/exercise12/saveCustomer.html", and use
-            th:object to bind the ${customer} variable as the form-backing bean. 
-        -->
-        <form method="post">
-            <!-- Use th:field to set field 'id' here -->
-            <input type="hidden" />
-            
-            <!-- Use th:field to show *{firstName} -->
-            <label for="firstName">First name:</label>
-            <input type="text" />
-            
-            <!-- Use th:field to show *{lastName} -->
-            <label for="lastName">Last name:</label>
-            <input type="text" />
-            
-            Genre:
-            <!-- Iterate on ${genders} -->
-            <div class="radio">
-                <!-- Use th:field to check *{gender} -->
-                <input type="radio" />
-                <label>Male</label>
-            </div>
-            
-            <label for="paymentMethod">Payment method:</label>
-            <!-- Use th:field to select *{paymentMethod} -->
-            <select>
-                <!-- Iterate on ${paymentMethods} -->
-                <option>Credit card</option>
-            </select>
-            
-            <!-- Use th:field to show *{balance} -->
-            <label for="balance">Balance (dollars):</label>
-            <input type="text" />
-            
-            <input type="submit" />
-        </form>
+        
+    <table>
+      <tr th:each="writer : ${writers}">
+	<td th:text="${writer.name}">Name</td>
+	<td th:text="${writer.location}">Location</td>
+	    		
+      </tr>
+    </table>
+<
+        
     </body>
 </html>

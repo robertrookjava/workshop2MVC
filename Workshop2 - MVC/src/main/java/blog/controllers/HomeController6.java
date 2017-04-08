@@ -51,7 +51,7 @@ public class HomeController6 {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/index6", method = RequestMethod.POST)
     public String indexPost(Model model, HttpServletRequest request) {
         String invoer1 = request.getParameter("invoer1");
         String invoer2 = request.getParameter("invoer2");

@@ -6,6 +6,8 @@
 package blog.services;
 import blog.models.Account;
 import blog.repositories.*;
+import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +27,21 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public void create(Account account) {
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        account.setDatum_Aanmaak(new Date());
+        this.accountRepository.save(account);
+     
     }
     
     @Override
     public void create(int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Account account = new Account();
+       account.setIdAccount(idAccount);
+       account.setGebruikersnaam(gebruikersnaam);
+       account.setWachtwoord(wachtwoord);
+       account.setAccountype_id(accountype_id);
+       this.accountRepository.save(account);
+       
+       
     }
 
     
@@ -38,23 +49,32 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public Account read(Account account) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.accountRepository.findOne(account.getIdAccount());
+    }
+    
+    @Override
+    public List<Account> read(String gebruikersnaam, String wachtwoord) {
+         return this.accountRepository.readByGebruikersnaamOrWachtwoord(gebruikersnaam, wachtwoord);
     }
 
     @Override
     public boolean exists(Account account) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.accountRepository.exists(account.getIdAccount());
     }
 
     @Override
     public boolean exists(int idAccount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.accountRepository.exists(idAccount);
     }
 
     @Override
-    public boolean exists(String gebruikersnaam, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean exists(String gebruikersnaam, String wachtwoord) {
+       List <Account> accountlist = read (gebruikersnaam, wachtwoord);
+       boolean isEmpty = accountlist.isEmpty();
+       return !isEmpty;
     }
+
+    
 
     
     

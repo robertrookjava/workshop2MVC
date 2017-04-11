@@ -15,6 +15,7 @@ public interface AccountService {
     void create (Account account);
     void create (int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id);
     Account read (Account account);
+    List<Account> read (String gebruikersnaam, String password);
     boolean exists (Account account);
     boolean exists (int idAccount);
     boolean exists (String gebruikersnaam, String password);

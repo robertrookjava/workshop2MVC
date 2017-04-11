@@ -15,6 +15,7 @@ import java.util.List;
  *
  * @author robertrook
  */
+@Repository
 public interface BestelArtikelRepository extends JpaRepository<BestelArtikel, Integer> {
     
 }

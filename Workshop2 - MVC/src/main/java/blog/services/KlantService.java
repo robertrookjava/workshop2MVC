@@ -14,6 +14,29 @@ import java.util.List;
  */
 public interface KlantService {
     void create (Klant klant);
+    void create (String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres);
+    
+    void delete (Klant klant);
+    void delete (int idKlant);
+    
+    Klant read (Klant klant);
+    Klant read (int idKlant);
+    List<Klant> read (String achternaam);
+    
+    
+    Boolean exists (Klant klant);
+    Boolean exists (int idKlant);
+    Boolean exists (String achternaam);
+    
+    List <Klant> readAll();
+    
+    void update (Klant klant);
+    void update (int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres);
+    
+    
+    
+    
+    
     
     
 }

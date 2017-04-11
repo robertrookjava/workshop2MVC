@@ -45,6 +45,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
     
+    @Autowired
+    private AccountService accountservice;
+    
+    @Autowired
+    private AccounttypeService accounttypeservice;
+    
+    @Autowired
+    private ArtikelService artikelService;
+    
+    @Autowired
+    private BestelArtikelService bestelArtikelService;
+    
+    @Autowired
+    private BestellingService bestellingService;
+    
+    @Autowired
+    private KlantService klantService;
+    
+    
+    
 @RequestMapping(value = "/", method = RequestMethod.GET)
     public String indexGet(Model model, HttpServletRequest request) {
         
@@ -73,13 +93,7 @@ public class HomeController {
         System.out.println("invoer5 = " + invoer5);
         System.out.println("invoer6 = " + invoer6);
         
-        if (invoer1.equals("")) throw new Exception();
-        if (invoer1.equals("1")) throw new Exception1();
-        if (invoer1.equals("2")) throw new Exception2();
-        if (invoer1.equals("3")) throw new Exception3();
-        if (invoer1.equals("4")) throw new Exception4();
-        if (invoer1.equals("5")) throw new Exception5();
-        if (invoer1.equals("6")) throw new Exception6();
+       
         
         return "answers/answer1";
     }    

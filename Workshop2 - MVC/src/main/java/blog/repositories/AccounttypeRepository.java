@@ -15,6 +15,7 @@ import java.util.List;
  *
  * @author robertrook
  */
+@Repository
 public interface AccounttypeRepository extends JpaRepository<Accounttype, Integer>{
     
 }

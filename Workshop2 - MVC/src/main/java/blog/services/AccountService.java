@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface AccountService {
     void create (Account account);
+    void create (int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id);
     Account read (Account account);
     boolean exists (Account account);
     boolean exists (int idAccount);

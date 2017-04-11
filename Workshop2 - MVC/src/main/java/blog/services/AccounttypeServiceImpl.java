@@ -23,22 +23,38 @@ public class AccounttypeServiceImpl implements AccounttypeService {
 
     @Override
     public void create(Accounttype accounttype) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.accounttypeRepository.save(accounttype);
     }
 
     @Override
     public void create(int id, String type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Accounttype accounttype = new Accounttype();
+        accounttype.setId(id);
+        accounttype.setTYpe(type);
+        this.accounttypeRepository.save(accounttype);
     }
 
     @Override
     public Accounttype read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.accounttypeRepository.findOne(id);
     }
 
     @Override
     public boolean exists(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.accounttypeRepository.exists(id);
+    }
+
+    @Override
+    public List<Accounttype> read(String type) {
+        return this.accounttypeRepository.readByType(type);
+    }
+
+    @Override
+    public boolean exists(String type) {
+        List<Accounttype> accounttypeList = read(type);
+        boolean isEmpty = accounttypeList.isEmpty();
+        return !isEmpty;
+        
     }
     
 }

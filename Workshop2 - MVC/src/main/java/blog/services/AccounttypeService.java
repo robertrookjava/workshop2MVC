@@ -15,5 +15,7 @@ public interface AccounttypeService {
     void create (Accounttype accounttype);
     void create (int id, String type);
     Accounttype read (int id);
+    List <Accounttype> read (String type);
     boolean exists (int id);
+    boolean exists (String type);
 }

@@ -12,6 +12,8 @@ import blog.Exceptions.Exception4;
 import blog.Exceptions.Exception5;
 import blog.Exceptions.Exception6;
 import blog.forms.LoginForm;
+import blog.models.Account;
+import blog.models.Accounttype;
 import blog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -76,6 +78,7 @@ public class HomeController {
      * @param model
      * @param request
      * @return
+     * @throws java.lang.Exception
      */
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String indexPost(Model model, HttpServletRequest request) throws Exception {
@@ -93,6 +96,14 @@ public class HomeController {
         System.out.println("invoer5 = " + invoer5);
         System.out.println("invoer6 = " + invoer6);
         
+        
+        //List <Account> accountList = accountservice.read(invoer1, invoer2);
+        //for(Account temp: accountList){
+        //    System.out.println(temp.getIdAccount());
+        //}
+        accountservice.create(Integer.parseInt(invoer1),invoer2,invoer3,Integer.parseInt(invoer4));
+       
+
        
         
         return "answers/answer1";

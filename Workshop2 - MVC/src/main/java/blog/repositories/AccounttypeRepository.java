@@ -17,5 +17,5 @@ import java.util.List;
  */
 @Repository
 public interface AccounttypeRepository extends JpaRepository<Accounttype, Integer>{
-    
+     List<Accounttype> readByType(String type);
 }

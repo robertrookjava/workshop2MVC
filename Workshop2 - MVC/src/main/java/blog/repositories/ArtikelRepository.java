@@ -17,5 +17,5 @@ import java.util.List;
  */
 @Repository
 public interface ArtikelRepository extends JpaRepository<Artikel, Integer> {
-    
+    List<Artikel> readByNaam(String naam);
 }

@@ -25,67 +25,78 @@ public class ArtikelServiceImpl implements ArtikelService {
 
     @Override
     public void create(Artikel artikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       artikelRepository.save(artikel);
     }
 
     @Override
     public void create(String naam, BigDecimal prijs, int voorraad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Artikel artikel = new Artikel();
+        artikel.setNaam(naam);
+        artikel.setPrijs(prijs);
+        artikel.setVoorraad(voorraad);
+        create(artikel);
     }
 
     @Override
     public void delete(Artikel artikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        artikelRepository.delete(artikel);
     }
 
     @Override
     public void delete(int idArtikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        artikelRepository.delete(idArtikel);
     }
 
     @Override
-    public void read(Artikel artikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Artikel read(Artikel artikel) {
+        return artikelRepository.findOne(artikel.getIdArtikel());
     }
 
     @Override
-    public void read(int idArtikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Artikel read(int idArtikel) {
+       return artikelRepository.findOne(idArtikel);
     }
 
     @Override
     public List<Artikel> read(String naam) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return artikelRepository.readByNaam(naam);
     }
 
     @Override
     public List<Artikel> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return artikelRepository.findAll();
     }
 
     @Override
     public boolean exists(Artikel artikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return artikelRepository.exists(artikel.getIdArtikel());
     }
 
     @Override
     public boolean exists(int idArtikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return artikelRepository.exists(idArtikel);
     }
 
     @Override
     public boolean exists(String naam) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List <Artikel> artikelList = read(naam);
+        boolean isEmpty = artikelList.isEmpty();
+        return !isEmpty;
     }
 
     @Override
     public void update(Artikel artikel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        artikelRepository.save(artikel);
     }
 
     @Override
     public void update(int idArtikel, String naam, BigDecimal prijs, int Voorraad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Artikel artikel = new Artikel();
+        artikel.setIdArtikel(idArtikel);
+        artikel.setNaam(naam);
+        artikel.setPrijs(prijs);
+        artikel.setVoorraad(Voorraad);
+        artikelRepository.save(artikel);
     }
     
 }

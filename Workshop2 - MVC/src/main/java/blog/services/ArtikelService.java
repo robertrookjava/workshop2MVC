@@ -20,8 +20,8 @@ public interface ArtikelService {
     void delete (Artikel artikel);
     void delete (int idArtikel);
     
-    void read (Artikel artikel);
-    void read (int idArtikel);
+    Artikel read (Artikel artikel);
+    Artikel read (int idArtikel);
     public List<Artikel> read (String naam);
     
     List<Artikel> readAll();

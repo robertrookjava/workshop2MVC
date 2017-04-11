@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import blog.services.*;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
@@ -101,7 +102,9 @@ public class HomeController {
         //for(Account temp: accountList){
         //    System.out.println(temp.getIdAccount());
         //}
-        accountservice.create(Integer.parseInt(invoer1),invoer2,invoer3,Integer.parseInt(invoer4));
+        //accountservice.create(Integer.parseInt(invoer1),invoer2,invoer3,Integer.parseInt(invoer4));
+        
+        artikelService.update(Integer.parseInt(invoer4),invoer1, new BigDecimal(invoer2), Integer.parseInt(invoer3));
        
 
        

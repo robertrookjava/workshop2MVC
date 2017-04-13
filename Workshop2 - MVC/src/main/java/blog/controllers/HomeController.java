@@ -110,11 +110,18 @@ public class HomeController {
         //for(Account temp: accountList){
         //    System.out.println(temp.getIdAccount());
         //}
-        accountservice.create(Integer.parseInt(invoer1),invoer2,invoer3,Integer.parseInt(invoer4));
+        //accountservice.create(Integer.parseInt(invoer1),invoer2,invoer3,Integer.parseInt(invoer4));
         
         //artikelService.update(Integer.parseInt(invoer4),invoer1, new BigDecimal(invoer2), Integer.parseInt(invoer3));
        //Boolean exists = accountservice.exists(invoer1,invoer2);
        //System.out.println (exists);
+       
+       boolean b1 = checkFormat.isInteger(invoer1);
+       boolean b2 = checkFormat.isBigDecimal(invoer2);
+       boolean b3 = checkFormat.isEmailAdres(invoer3);
+       
+       
+       
        
 
        

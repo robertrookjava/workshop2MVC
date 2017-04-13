@@ -13,6 +13,8 @@ import blog.Exceptions.KlantAchternaamLeeg;
 import blog.Exceptions.KlantVoornaamLeeg;
 import blog.Exceptions.EmailadresOngeldig;
 import blog.Exceptions.KlantHeeftBestellingen;
+import blog.Exceptions.NietGeheel;
+import blog.Exceptions.NietNumeriek;
 import blog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -80,6 +82,13 @@ public class AppWideExceptionHandler {
     @ExceptionHandler(KlantHeeftBestellingen.class)
     public String ExceptionHandler8 (){
         return "exceptions/klantHeeftBestellingen";
+    }
+    
+   
+    
+     @ExceptionHandler(NietGeheel.class)
+    public String ExceptionHandler10 (){
+        return "exceptions/nietGeheel";
     }
     
     

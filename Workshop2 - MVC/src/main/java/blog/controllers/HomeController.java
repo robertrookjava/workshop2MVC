@@ -11,6 +11,7 @@ import blog.Exceptions.ArtikelprijsNegatief;
 import blog.Exceptions.KlantAchternaamLeeg;
 import blog.Exceptions.KlantVoornaamLeeg;
 import blog.Exceptions.EmailadresOngeldig;
+import blog.format.CheckFormat;
 import blog.forms.LoginForm;
 import blog.models.Account;
 import blog.models.Accounttype;
@@ -65,6 +66,11 @@ public class HomeController {
     
     @Autowired
     private KlantService klantService;
+    
+    @Autowired 
+    private CheckFormat checkFormat;
+    
+    
     
     
     

@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class Exception2 extends Exception{
+public class VoorraadNegatief extends Exception{
     
 }

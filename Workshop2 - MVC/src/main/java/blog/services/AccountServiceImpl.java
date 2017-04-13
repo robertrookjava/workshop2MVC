@@ -45,7 +45,10 @@ public class AccountServiceImpl implements AccountService{
     }
 
     
-   
+    @Override
+    public Account read(int idAccount) {
+       return this.accountRepository.findOne(idAccount); 
+    }
 
     @Override
     public Account read(Account account) {
@@ -73,6 +76,8 @@ public class AccountServiceImpl implements AccountService{
        boolean isEmpty = accountlist.isEmpty();
        return !isEmpty;
     }
+
+    
 
     
 

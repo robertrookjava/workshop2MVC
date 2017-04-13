@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package blog.services;
+import blog.Exceptions.ArtikelnaamLeeg;
+import blog.Exceptions.ArtikelprijsNegatief;
+import blog.Exceptions.VoorraadNegatief;
 import blog.models.*;
 import blog.repositories.ArtikelRepository;
 import java.math.BigDecimal;
@@ -24,12 +27,15 @@ public class ArtikelServiceImpl implements ArtikelService {
     
 
     @Override
-    public void create(Artikel artikel) {
+    public void create(Artikel artikel) throws Exception {
+       if (artikel.getVoorraad()<0) throw new VoorraadNegatief(); 
+       if (artikel.getNaam().isEmpty()) throw new ArtikelnaamLeeg();
+       if (artikel.getPrijs().signum()== - 1) throw new ArtikelprijsNegatief();
        artikelRepository.save(artikel);
     }
 
     @Override
-    public void create(String naam, BigDecimal prijs, int voorraad) {
+    public void create(String naam, BigDecimal prijs, int voorraad) throws Exception {
         Artikel artikel = new Artikel();
         artikel.setNaam(naam);
         artikel.setPrijs(prijs);
@@ -85,18 +91,40 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void update(Artikel artikel) {
-        artikelRepository.save(artikel);
+    public void update(Artikel artikel) throws Exception{
+        if (artikel.getVoorraad()<0) throw new VoorraadNegatief(); 
+        if (artikel.getNaam().isEmpty()) throw new ArtikelnaamLeeg();
+        if (artikel.getPrijs().signum()== - 1) throw new ArtikelprijsNegatief();
+        Artikel artikelFound = artikelRepository.findOne(artikel.getIdArtikel());
+        artikelFound.setNaam(artikel.getNaam());
+        artikelFound.setPrijs(artikel.getPrijs());
+        artikelFound.setVoorraad(artikel.getVoorraad());
+        artikelRepository.save(artikelFound);
     }
 
     @Override
-    public void update(int idArtikel, String naam, BigDecimal prijs, int Voorraad) {
+    public void update(int idArtikel, String naam, BigDecimal prijs, int Voorraad)  throws Exception {
         Artikel artikel = new Artikel();
         artikel.setIdArtikel(idArtikel);
         artikel.setNaam(naam);
         artikel.setPrijs(prijs);
         artikel.setVoorraad(Voorraad);
-        artikelRepository.save(artikel);
+        update(artikel);
     }
+
+    @Override
+    public void verhoogVoorraad(int idArtikel, int verhoog) throws Exception {
+        Artikel artikelFound = artikelRepository.findOne(idArtikel);
+        if ((artikelFound.getVoorraad()+verhoog) <0) throw new VoorraadNegatief(); 
+        artikelFound.setVoorraad(artikelFound.getVoorraad()+verhoog);
+        update (artikelFound);
+        
+    }
+
+    @Override
+    public void verlaagVoorraad(int idArtikel, int verlaag) throws Exception {
+       verhoogVoorraad (idArtikel, -verlaag);
+    }
+    
     
 }

@@ -14,6 +14,7 @@ import java.util.List;
 public interface AccountService {
     void create (Account account);
     void create (int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id);
+    Account read (int idAccount);
     Account read (Account account);
     List<Account> read (String gebruikersnaam, String password);
     boolean exists (Account account);

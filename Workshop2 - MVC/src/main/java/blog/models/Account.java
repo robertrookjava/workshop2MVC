@@ -25,20 +25,15 @@ import javax.persistence.Temporal;
 public class Account implements Serializable {
     
     @Id
-    @Column (name="idAccount")
     private int idAccount;
     
-    @Column (name="Gebruikersnaam")
     private String gebruikersnaam;
     
-    @Column (name="Wachtwoord")
     private String wachtwoord;
     
-    @Column (name="Datum_Aanmaak")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date datum_aanmaak;
     
-    @Column (name="accountype_id")
     private int accountype_id;
     
     

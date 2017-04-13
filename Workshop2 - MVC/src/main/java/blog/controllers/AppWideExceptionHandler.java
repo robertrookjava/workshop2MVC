@@ -5,9 +5,9 @@
  */
 package blog.controllers;
 
-import blog.Exceptions.Exception1;
-import blog.Exceptions.Exception2;
-import blog.Exceptions.Exception3;
+import blog.Exceptions.VoorraadNegatief;
+import blog.Exceptions.ArtikelnaamLeeg;
+import blog.Exceptions.ArtikelprijsNegatief;
 import blog.Exceptions.Exception4;
 import blog.Exceptions.Exception5;
 import blog.Exceptions.Exception6;
@@ -39,19 +39,19 @@ public class AppWideExceptionHandler {
         return "exceptions/exception";
     }
     
-    @ExceptionHandler(Exception1.class)
+    @ExceptionHandler(VoorraadNegatief.class)
     public String ExceptionHandler1 (){
-        return "exceptions/exception1";
+        return "exceptions/vooraadNegatief";
     }
     
-    @ExceptionHandler(Exception2.class)
+    @ExceptionHandler(ArtikelnaamLeeg.class)
     public String ExceptionHandler2 (){
-        return "exceptions/exception2";
+        return "exceptions/artikelnaamLeeg";
     }
     
-    @ExceptionHandler(Exception3.class)
+    @ExceptionHandler(ArtikelprijsNegatief.class)
     public String ExceptionHandler3 (){
-        return "exceptions/exception3";
+        return "exceptions/artikelprijsNegatief";
     }
     
     @ExceptionHandler(Exception4.class)

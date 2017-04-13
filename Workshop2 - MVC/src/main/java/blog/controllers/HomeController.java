@@ -5,9 +5,9 @@
  */
 package blog.controllers;
 
-import blog.Exceptions.Exception1;
-import blog.Exceptions.Exception2;
-import blog.Exceptions.Exception3;
+import blog.Exceptions.VoorraadNegatief;
+import blog.Exceptions.ArtikelnaamLeeg;
+import blog.Exceptions.ArtikelprijsNegatief;
 import blog.Exceptions.Exception4;
 import blog.Exceptions.Exception5;
 import blog.Exceptions.Exception6;
@@ -98,13 +98,17 @@ public class HomeController {
         System.out.println("invoer6 = " + invoer6);
         
         
+        
+        
         //List <Account> accountList = accountservice.read(invoer1, invoer2);
         //for(Account temp: accountList){
         //    System.out.println(temp.getIdAccount());
         //}
-        //accountservice.create(Integer.parseInt(invoer1),invoer2,invoer3,Integer.parseInt(invoer4));
+        accountservice.create(Integer.parseInt(invoer1),invoer2,invoer3,Integer.parseInt(invoer4));
         
-        artikelService.update(Integer.parseInt(invoer4),invoer1, new BigDecimal(invoer2), Integer.parseInt(invoer3));
+        //artikelService.update(Integer.parseInt(invoer4),invoer1, new BigDecimal(invoer2), Integer.parseInt(invoer3));
+       //Boolean exists = accountservice.exists(invoer1,invoer2);
+       //System.out.println (exists);
        
 
        

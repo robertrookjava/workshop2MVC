@@ -14,8 +14,8 @@ import java.util.List;
  */
 public interface ArtikelService {
     
-    void create(Artikel artikel);
-    void create (String naam, BigDecimal prijs, int voorraad);
+    void create(Artikel artikel) throws Exception;
+    void create (String naam, BigDecimal prijs, int voorraad) throws Exception;
     
     void delete (Artikel artikel);
     void delete (int idArtikel);
@@ -30,10 +30,11 @@ public interface ArtikelService {
     boolean exists (int idArtikel);
     boolean exists (String naam);
     
-    void update (Artikel artikel);
-    void update (int idArtikel, String naam, BigDecimal prijs, int Voorraad);
+    void update (Artikel artikel) throws Exception;
+    void update (int idArtikel, String naam, BigDecimal prijs, int Voorraad) throws Exception;
     
-    
+    void verhoogVoorraad (int idArtikel, int verhoog) throws Exception;
+    void verlaagVoorraad (int idArtikel, int verlaag) throws Exception;
     
     
     

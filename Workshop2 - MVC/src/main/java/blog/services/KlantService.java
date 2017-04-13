@@ -13,11 +13,11 @@ import java.util.List;
  * @author robertrook
  */
 public interface KlantService {
-    void create (Klant klant);
-    void create (String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres);
+    void create (Klant klant) throws Exception;
+    void create (String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception;
     
-    void delete (Klant klant);
-    void delete (int idKlant);
+    void delete (Klant klant)throws Exception;
+    void delete (int idKlant)throws Exception;
     
     Klant read (Klant klant);
     Klant read (int idKlant);
@@ -30,8 +30,8 @@ public interface KlantService {
     
     List <Klant> readAll();
     
-    void update (Klant klant);
-    void update (int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres);
+    void update (Klant klant) throws Exception;
+    void update (int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception;
     
     
     

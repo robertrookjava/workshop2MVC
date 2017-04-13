@@ -5,12 +5,14 @@
  */
 package blog.controllers;
 
+import blog.Exceptions.ArtikelInBestellingen;
 import blog.Exceptions.VoorraadNegatief;
 import blog.Exceptions.ArtikelnaamLeeg;
 import blog.Exceptions.ArtikelprijsNegatief;
-import blog.Exceptions.Exception4;
-import blog.Exceptions.Exception5;
-import blog.Exceptions.Exception6;
+import blog.Exceptions.KlantAchternaamLeeg;
+import blog.Exceptions.KlantVoornaamLeeg;
+import blog.Exceptions.EmailadresOngeldig;
+import blog.Exceptions.KlantHeeftBestellingen;
 import blog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,19 +56,30 @@ public class AppWideExceptionHandler {
         return "exceptions/artikelprijsNegatief";
     }
     
-    @ExceptionHandler(Exception4.class)
+    @ExceptionHandler(KlantAchternaamLeeg.class)
     public String ExceptionHandler4 (){
-        return "exceptions/exception4";
+        return "exceptions/klantAchternaamLeeg";
     }
     
-    @ExceptionHandler(Exception5.class)
+    @ExceptionHandler(KlantVoornaamLeeg.class)
     public String ExceptionHandler5 (){
-        return "exceptions/exception5";
+        return "exceptions/klantVoornaamLeeg";
     }
     
-    @ExceptionHandler(Exception6.class)
+    @ExceptionHandler(EmailadresOngeldig.class)
     public String ExceptionHandler6 (){
-        return "exceptions/exception6";
+        return "exceptions/emailadresOngeldig";
+    }
+    
+    
+    @ExceptionHandler(ArtikelInBestellingen.class)
+    public String ExceptionHandler7 (){
+        return "exceptions/artikelInBestellingen";
+    }
+    
+    @ExceptionHandler(KlantHeeftBestellingen.class)
+    public String ExceptionHandler8 (){
+        return "exceptions/klantHeeftBestellingen";
     }
     
     

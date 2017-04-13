@@ -22,22 +22,23 @@ public class KlantServiceImpl implements KlantService {
     private KlantRepository klantRepository;
 
     @Override
-    public void create(Klant klant) {
+    public void create(Klant klant) throws Exception {
+        
+        
+    }
+
+    @Override
+    public void create(String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void create(String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) {
+    public void delete(Klant klant) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Klant klant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete(int idKlant) {
+    public void delete(int idKlant) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -77,13 +78,15 @@ public class KlantServiceImpl implements KlantService {
     }
 
     @Override
-    public void update(Klant klant) {
+    public void update(Klant klant) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) {
+    public void update(int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

@@ -15,6 +15,9 @@ import blog.Exceptions.EmailadresOngeldig;
 import blog.Exceptions.KlantHeeftBestellingen;
 import blog.Exceptions.NietGeheel;
 import blog.Exceptions.NietNumeriek;
+import blog.Exceptions.idAccountBestaatNiet;
+import blog.Exceptions.idAccounttypeBestaatNiet;
+import blog.Exceptions.idKlantBestaatNiet;
 import blog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,8 +86,7 @@ public class AppWideExceptionHandler {
     public String ExceptionHandler8 (){
         return "exceptions/klantHeeftBestellingen";
     }
-    
-   
+       
     
     @ExceptionHandler(NietGeheel.class)
     public String ExceptionHandler10 (){
@@ -94,6 +96,21 @@ public class AppWideExceptionHandler {
     @ExceptionHandler(NietNumeriek.class)
     public String ExceptionHandler11 (){
         return "exceptions/nietNumeriek";
+    }
+    
+    @ExceptionHandler(idKlantBestaatNiet.class)
+    public String ExceptionHandler12 (){
+        return "exceptions/idKlantBestaatNiet";
+    }
+    
+    @ExceptionHandler(idAccountBestaatNiet.class)
+    public String ExceptionHandler13 (){
+        return "exceptions/idAccountBestaatNiet";
+    }
+    
+    @ExceptionHandler(idAccounttypeBestaatNiet.class)
+    public String ExceptionHandler14 (){
+        return "exceptions/idAccounttypeBestaatNiet";
     }
     
     

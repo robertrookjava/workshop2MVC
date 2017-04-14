@@ -60,6 +60,11 @@ public class CheckFormatImpl implements CheckFormat {
         EmailValidator validator = EmailValidator.getInstance();
         return (validator.isValid(str));
     }
+
+    @Override
+    public boolean isEmailAdresOfLeeg(String str) {
+        return ((str.isEmpty())|| isEmailAdres(str));
+    }
     
    
     

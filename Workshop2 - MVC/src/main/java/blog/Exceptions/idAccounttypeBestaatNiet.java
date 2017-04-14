@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package blog.format;
+package blog.Exceptions;
 
 /**
  *
  * @author robertrook
  */
-public interface CheckFormat {
-    
-    boolean isInteger (String str);
-    boolean isBigDecimal (String str);
-    boolean isEmailAdres (String str);
-    boolean isEmailAdresOfLeeg (String str);
-    
+public class idAccounttypeBestaatNiet extends Exception {
     
 }

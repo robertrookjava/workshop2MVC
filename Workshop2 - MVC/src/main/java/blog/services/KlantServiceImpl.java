@@ -5,6 +5,10 @@
  */
 package blog.services;
 
+import blog.Exceptions.EmailadresOngeldig;
+import blog.Exceptions.KlantAchternaamLeeg;
+import blog.Exceptions.KlantVoornaamLeeg;
+import blog.format.CheckFormat;
 import blog.models.Klant;
 import blog.repositories.KlantRepository;
 import java.util.List;
@@ -20,26 +24,40 @@ public class KlantServiceImpl implements KlantService {
     
     @Autowired
     private KlantRepository klantRepository;
+    
+    @Autowired 
+    private CheckFormat checkFormat;
 
     @Override
     public void create(Klant klant) throws Exception {
+        if (klant.getVoornaam().isEmpty()) throw new KlantVoornaamLeeg();
+        if (klant.getAchternaam().isEmpty()) throw new KlantAchternaamLeeg();
+        if (!checkFormat.isEmailAdresOfLeeg((klant.getEmailadres()))) throw new EmailadresOngeldig();
+        klantRepository.save(klant);
         
         
     }
 
     @Override
     public void create(String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Klant klant = new Klant();
+        klant.setVoornaam(voornaam);
+        klant.setAchternaam(achternaam);
+        klant.setTussenvoegsel(tussenvoegsel);
+        klant.setTelefoonnummer(telefoonnummer);
+        klant.setEmailadres(emailadres);
+        create (klant);
+        
     }
 
     @Override
     public void delete(Klant klant) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       klantRepository.delete(klant);
     }
 
     @Override
     public void delete(int idKlant) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        klantRepository.delete(idKlant);
     }
 
     @Override
@@ -59,12 +77,12 @@ public class KlantServiceImpl implements KlantService {
 
     @Override
     public Boolean exists(Klant klant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return exists (klant.getIdKlant());
     }
 
     @Override
     public Boolean exists(int idKlant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return klantRepository.exists(idKlant);
     }
 
     @Override

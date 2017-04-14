@@ -120,7 +120,7 @@ public class HomeController {
        
        boolean b1 = checkFormat.isInteger(invoer1);
        boolean b2 = checkFormat.isBigDecimal(invoer2);
-       boolean b3 = checkFormat.isEmailAdres(invoer3);
+       boolean b3 = checkFormat.isEmailAdresOfLeeg(invoer3);
        
        
        if (!b1) throw new NietGeheel();

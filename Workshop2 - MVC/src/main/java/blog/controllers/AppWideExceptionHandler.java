@@ -86,9 +86,14 @@ public class AppWideExceptionHandler {
     
    
     
-     @ExceptionHandler(NietGeheel.class)
+    @ExceptionHandler(NietGeheel.class)
     public String ExceptionHandler10 (){
         return "exceptions/nietGeheel";
+    }
+    
+    @ExceptionHandler(NietNumeriek.class)
+    public String ExceptionHandler11 (){
+        return "exceptions/nietNumeriek";
     }
     
     

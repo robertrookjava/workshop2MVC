@@ -11,6 +11,8 @@ import blog.Exceptions.ArtikelprijsNegatief;
 import blog.Exceptions.KlantAchternaamLeeg;
 import blog.Exceptions.KlantVoornaamLeeg;
 import blog.Exceptions.EmailadresOngeldig;
+import blog.Exceptions.NietGeheel;
+import blog.Exceptions.NietNumeriek;
 import blog.format.CheckFormat;
 import blog.forms.LoginForm;
 import blog.models.Account;
@@ -120,6 +122,10 @@ public class HomeController {
        boolean b2 = checkFormat.isBigDecimal(invoer2);
        boolean b3 = checkFormat.isEmailAdres(invoer3);
        
+       
+       if (!b1) throw new NietGeheel();
+       if (!b2) throw new NietNumeriek();
+       if (!b3) throw new EmailadresOngeldig();
        
        
        

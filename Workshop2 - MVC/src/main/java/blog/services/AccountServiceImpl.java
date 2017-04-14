@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import blog.Exceptions.*;
 
 /**
  *
@@ -25,21 +26,21 @@ public class AccountServiceImpl implements AccountService{
     private AccounttypeRepository accounttypeRepository;
 
     @Override
-    public void create(Account account) {
-        
+    public void create(Account account) throws Exception{
+        if (!accounttypeRepository.exists(account.getAccountype_id())) throw new idAccounttypeBestaatNiet();
         account.setDatum_Aanmaak(new Date());
         this.accountRepository.save(account);
      
     }
     
     @Override
-    public void create(int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id) {
+    public void create(int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id) throws Exception {
        Account account = new Account();
        account.setIdAccount(idAccount);
        account.setGebruikersnaam(gebruikersnaam);
        account.setWachtwoord(wachtwoord);
        account.setAccountype_id(accountype_id);
-       this.accountRepository.save(account);
+       create(account);
        
        
     }

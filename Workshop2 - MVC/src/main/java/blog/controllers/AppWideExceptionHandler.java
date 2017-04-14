@@ -4,20 +4,7 @@
  * and open the template in the editor.
  */
 package blog.controllers;
-
-import blog.Exceptions.ArtikelInBestellingen;
-import blog.Exceptions.VoorraadNegatief;
-import blog.Exceptions.ArtikelnaamLeeg;
-import blog.Exceptions.ArtikelprijsNegatief;
-import blog.Exceptions.KlantAchternaamLeeg;
-import blog.Exceptions.KlantVoornaamLeeg;
-import blog.Exceptions.EmailadresOngeldig;
-import blog.Exceptions.KlantHeeftBestellingen;
-import blog.Exceptions.NietGeheel;
-import blog.Exceptions.NietNumeriek;
-import blog.Exceptions.idAccountBestaatNiet;
-import blog.Exceptions.idAccounttypeBestaatNiet;
-import blog.Exceptions.idKlantBestaatNiet;
+import blog.Exceptions.*;
 import blog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -111,6 +98,11 @@ public class AppWideExceptionHandler {
     @ExceptionHandler(idAccounttypeBestaatNiet.class)
     public String ExceptionHandler14 (){
         return "exceptions/idAccounttypeBestaatNiet";
+    }
+    
+    @ExceptionHandler(idBestellingBestaatNiet.class)
+    public String ExceptionHandler15 (){
+        return "exceptions/idBestellingBestaatNiet";
     }
     
     

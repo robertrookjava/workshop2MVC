@@ -6,7 +6,7 @@
 package blog.services;
 
 import blog.models.Bestelling;
-import blog.repositories.BestellingRepository;
+import blog.repositories.*;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +20,9 @@ public class BestellingServiceImpl implements BestellingService {
     
     @Autowired
     private BestellingRepository bestellingRepository;
+    
+    
+    
 
     @Override
     public int create(Bestelling bestelling) {
@@ -28,13 +31,9 @@ public class BestellingServiceImpl implements BestellingService {
 
     @Override
     public int create(int idKlant, int idAccount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public int create(int idKlant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void delete(Bestelling bestelling) {

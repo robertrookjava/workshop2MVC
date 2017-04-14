@@ -13,16 +13,16 @@ import java.util.List;
  * @author robertrook
  */
 public interface BestellingService {
-    int create (Bestelling bestelling);
-    int create (int idKlant, int idAccount);
-    int create (int idKlant);
+    int create (Bestelling bestelling) throws Exception;
+    int create (int idKlant, int idAccount) throws Exception;
+    
     // uitzoeken hoe return generated key bij JPA repositories
     
-    void delete (Bestelling bestelling);
-    void delete (int idBestelling);
+    void delete (Bestelling bestelling)throws Exception;
+    void delete (int idBestelling)throws Exception;
     
-    Bestelling read (Bestelling bestelling);
-    Bestelling read (int idBestelling);
+    Bestelling read (Bestelling bestelling)throws Exception;
+    Bestelling read (int idBestelling)throws Exception;
     
     List<Bestelling> readAll();
     

@@ -5,9 +5,7 @@
  */
 package blog.services;
 
-import blog.Exceptions.EmailadresOngeldig;
-import blog.Exceptions.KlantAchternaamLeeg;
-import blog.Exceptions.KlantVoornaamLeeg;
+import blog.Exceptions.*;
 import blog.format.CheckFormat;
 import blog.models.Klant;
 import blog.repositories.KlantRepository;
@@ -52,11 +50,12 @@ public class KlantServiceImpl implements KlantService {
 
     @Override
     public void delete(Klant klant) throws Exception {
-       klantRepository.delete(klant);
+       delete (klant.getIdKlant());
     }
 
     @Override
     public void delete(int idKlant) throws Exception {
+        if (!exists(idKlant)) throw new idKlantBestaatNiet();
         klantRepository.delete(idKlant);
     }
 

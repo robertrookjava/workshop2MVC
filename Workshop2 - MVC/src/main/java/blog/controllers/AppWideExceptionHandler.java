@@ -100,10 +100,12 @@ public class AppWideExceptionHandler {
         return "exceptions/idAccounttypeBestaatNiet";
     }
     
-    @ExceptionHandler(idBestellingBestaatNiet.class)
+    @ExceptionHandler(idArtikelBestaatNiet.class)
     public String ExceptionHandler15 (){
-        return "exceptions/idBestellingBestaatNiet";
+        return "exceptions/idArtikelBestaatNiet";
     }
+    
+    
     
     
 }

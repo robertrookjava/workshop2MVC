@@ -19,8 +19,8 @@ public interface KlantService {
     void delete (Klant klant)throws Exception;
     void delete (int idKlant)throws Exception;
     
-    Klant read (Klant klant);
-    Klant read (int idKlant);
+    Klant read (Klant klant) throws Exception;
+    Klant read (int idKlant) throws Exception;
     List<Klant> read (String achternaam);
     
     

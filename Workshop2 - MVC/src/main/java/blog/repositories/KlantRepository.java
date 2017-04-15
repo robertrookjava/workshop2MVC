@@ -17,5 +17,5 @@ import java.util.List;
  */
 @Repository
 public interface KlantRepository extends JpaRepository<Klant, Integer> {
-    
+    List<Klant> readByAchternaam(String naam);
 }

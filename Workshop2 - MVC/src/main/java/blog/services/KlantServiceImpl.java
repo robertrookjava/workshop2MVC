@@ -60,18 +60,19 @@ public class KlantServiceImpl implements KlantService {
     }
 
     @Override
-    public Klant read(Klant klant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Klant read(Klant klant) throws Exception{
+         return read (klant.getIdKlant());
     }
 
     @Override
-    public Klant read(int idKlant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Klant read(int idKlant) throws Exception {
+        if (!exists(idKlant)) throw new idKlantBestaatNiet();
+        return klantRepository.findOne(idKlant);
     }
 
     @Override
     public List<Klant> read(String achternaam) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return klantRepository.readByAchternaam(achternaam);
     }
 
     @Override
@@ -86,22 +87,42 @@ public class KlantServiceImpl implements KlantService {
 
     @Override
     public Boolean exists(String achternaam) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       List <Klant> klantList = read(achternaam);
+        boolean isEmpty = klantList.isEmpty();
+        return !isEmpty;
     }
 
     @Override
     public List<Klant> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return klantRepository.findAll();
     }
 
     @Override
     public void update(Klant klant) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if (!exists(klant.getIdKlant())) throw new idKlantBestaatNiet();
+       if (klant.getVoornaam().isEmpty()) throw new KlantVoornaamLeeg();
+       if (klant.getAchternaam().isEmpty()) throw new KlantAchternaamLeeg();
+       if (!checkFormat.isEmailAdresOfLeeg((klant.getEmailadres()))) throw new EmailadresOngeldig();
+       Klant klantFound = klantRepository.findOne(klant.getIdKlant());
+       klantFound.setVoornaam(klant.getVoornaam());
+       klantFound.setAchternaam(klant.getAchternaam());
+       klantFound.setTussenvoegsel(klant.getTussenvoegsel());
+       klantFound.setTelefoonnummer(klant.getTelefoonnummer());
+       klantFound.setEmailadres(klant.getEmailadres());
+       klantRepository.save(klantFound);
+       
     }
 
     @Override
     public void update(int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Klant klant = new Klant();
+        klant.setIdKlant(idKlant);
+        klant.setVoornaam(voornaam);
+        klant.setAchternaam(achternaam);
+        klant.setTussenvoegsel(tussenvoegsel);
+        klant.setTelefoonnummer(telefoonnummer);
+        klant.setEmailadres(emailadres);
+        update(klant);
     }
 
     

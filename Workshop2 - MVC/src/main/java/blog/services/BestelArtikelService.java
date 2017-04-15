@@ -31,7 +31,7 @@ public interface BestelArtikelService {
     boolean exists(int idBestelling, int idArtikel);
     
     boolean existsByIdBestelling (int idBestelling);
-    boolean exsistsByIdArtikel (int idARtikel);
+    boolean exsistsByIdArtikel (int idArtikel);
     
     
     

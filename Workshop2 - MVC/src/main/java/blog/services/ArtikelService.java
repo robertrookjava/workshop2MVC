@@ -17,8 +17,8 @@ public interface ArtikelService {
     void create(Artikel artikel) throws Exception;
     void create (String naam, BigDecimal prijs, int voorraad) throws Exception;
     
-    void delete (Artikel artikel);
-    void delete (int idArtikel);
+    void delete (Artikel artikel) throws Exception;
+    void delete (int idArtikel) throws Exception;
     
     Artikel read (Artikel artikel);
     Artikel read (int idArtikel);

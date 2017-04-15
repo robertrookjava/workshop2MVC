@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package blog.services;
+import blog.Exceptions.*;
 import blog.Exceptions.ArtikelnaamLeeg;
 import blog.Exceptions.ArtikelprijsNegatief;
 import blog.Exceptions.VoorraadNegatief;
@@ -44,12 +45,13 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void delete(Artikel artikel) {
-        artikelRepository.delete(artikel);
+    public void delete(Artikel artikel) throws Exception {
+        delete (artikel.getIdArtikel());
     }
 
     @Override
-    public void delete(int idArtikel) {
+    public void delete(int idArtikel) throws Exception {
+        if (!exists(idArtikel)) throw new idArtikelBestaatNiet();
         artikelRepository.delete(idArtikel);
     }
 
@@ -92,6 +94,7 @@ public class ArtikelServiceImpl implements ArtikelService {
 
     @Override
     public void update(Artikel artikel) throws Exception{
+        if (!exists(artikel.getIdArtikel())) throw new idArtikelBestaatNiet();
         if (artikel.getVoorraad()<0) throw new VoorraadNegatief(); 
         if (artikel.getNaam().isEmpty()) throw new ArtikelnaamLeeg();
         if (artikel.getPrijs().signum()== - 1) throw new ArtikelprijsNegatief();

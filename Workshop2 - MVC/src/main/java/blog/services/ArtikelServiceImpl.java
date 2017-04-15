@@ -25,6 +25,9 @@ public class ArtikelServiceImpl implements ArtikelService {
     @Autowired
     private ArtikelRepository artikelRepository;
     
+    @Autowired
+    private BestelArtikelService bestelArtikelService;
+    
     
 
     @Override
@@ -52,6 +55,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     @Override
     public void delete(int idArtikel) throws Exception {
         if (!exists(idArtikel)) throw new idArtikelBestaatNiet();
+        
         artikelRepository.delete(idArtikel);
     }
 

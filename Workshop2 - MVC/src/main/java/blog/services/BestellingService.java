@@ -29,12 +29,11 @@ public interface BestellingService {
     boolean exists (Bestelling bestelling);
     boolean exists (int idBestelling);
     
-    List<Bestelling> readByIdKlant (int idKlant);
-    boolean existsByIdKlant (int Klant);
+    List<Bestelling> readByIdKlant (int idKlant) throws Exception;
+    boolean existsByIdKlant (int Klant) throws Exception;
     
-    void update (Bestelling bestelling);
-    void update (int idBestelling, int idKlant, int idAccount);
-    void update (int idBestelling, int idKlant);
+    
+    
     
     
     

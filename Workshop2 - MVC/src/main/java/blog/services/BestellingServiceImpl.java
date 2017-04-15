@@ -5,8 +5,10 @@
  */
 package blog.services;
 
+import blog.Exceptions.*;
 import blog.models.Bestelling;
 import blog.repositories.*;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,43 +23,59 @@ public class BestellingServiceImpl implements BestellingService {
     @Autowired
     private BestellingRepository bestellingRepository;
     
+    @Autowired
+    private AccountService accountService;
+    
+    @Autowired
+    private KlantService klantService;
+            
+       
+    
     
     
 
     @Override
-    public int create(Bestelling bestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int create(Bestelling bestelling) throws Exception {
+        if (!klantService.exists(bestelling.getIdKlant())) throw new idKlantBestaatNiet();
+        if (!accountService.exists(bestelling.getIdAccount())) throw new idAccountBestaatNiet();
+        bestelling.setDatum_Bestelling(new Date());
+        Bestelling save = bestellingRepository.save(bestelling);
+        return save.getIdBestelling();
     }
 
     @Override
-    public int create(int idKlant, int idAccount) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int create(int idKlant, int idAccount) throws Exception {
+        Bestelling bestelling = new Bestelling();
+        bestelling.setIdKlant(idKlant);
+        bestelling.setIdAccount(idAccount);
+        return (create(bestelling));
+        
     }
 
 
     @Override
     public void delete(Bestelling bestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       delete(bestelling.getIdBestelling());
     }
 
     @Override
     public void delete(int idBestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        bestellingRepository.delete(idBestelling);
     }
 
     @Override
     public Bestelling read(Bestelling bestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return read (bestelling.getIdBestelling());
     }
 
     @Override
     public Bestelling read(int idBestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return bestellingRepository.findOne(idBestelling);
     }
 
     @Override
     public List<Bestelling> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return bestellingRepository.findAll();
     }
 
     @Override
@@ -67,32 +85,23 @@ public class BestellingServiceImpl implements BestellingService {
 
     @Override
     public boolean exists(int idBestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         return bestellingRepository.exists(idBestelling);
     }
 
     @Override
-    public List<Bestelling> readByIdKlant(int idKlant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Bestelling> readByIdKlant(int idKlant) throws Exception {
+        if (!klantService.exists(idKlant)) throw new idKlantBestaatNiet();
+        return bestellingRepository.readByIdKlant(idKlant);
     }
 
     @Override
-    public boolean existsByIdKlant(int Klant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean existsByIdKlant(int idKlant) throws Exception {
+        List<Bestelling> bestellingList = readByIdKlant(idKlant);
+        return(!bestellingList.isEmpty());
     }
 
-    @Override
-    public void update(Bestelling bestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
-    @Override
-    public void update(int idBestelling, int idKlant, int idAccount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void update(int idBestelling, int idKlant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }

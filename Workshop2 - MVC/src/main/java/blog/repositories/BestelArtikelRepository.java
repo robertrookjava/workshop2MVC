@@ -5,6 +5,7 @@
  */
 package blog.repositories;
 import blog.models.BestelArtikel;
+import blog.models.BestelArtikelPK;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +17,6 @@ import java.util.List;
  * @author robertrook
  */
 @Repository
-public interface BestelArtikelRepository extends JpaRepository<BestelArtikel, Integer> {
+public interface BestelArtikelRepository extends JpaRepository<BestelArtikel, BestelArtikelPK> {
     
 }

@@ -25,6 +25,9 @@ public class KlantServiceImpl implements KlantService {
     
     @Autowired 
     private CheckFormat checkFormat;
+    
+    @Autowired 
+    private BestellingService bestellingService;
 
     @Override
     public void create(Klant klant) throws Exception {
@@ -32,8 +35,6 @@ public class KlantServiceImpl implements KlantService {
         if (klant.getAchternaam().isEmpty()) throw new KlantAchternaamLeeg();
         if (!checkFormat.isEmailAdresOfLeeg((klant.getEmailadres()))) throw new EmailadresOngeldig();
         klantRepository.save(klant);
-        
-        
     }
 
     @Override
@@ -56,6 +57,7 @@ public class KlantServiceImpl implements KlantService {
     @Override
     public void delete(int idKlant) throws Exception {
         if (!exists(idKlant)) throw new idKlantBestaatNiet();
+        if (bestellingService.existsByIdKlant(idKlant)) throw new KlantHeeftBestellingen();
         klantRepository.delete(idKlant);
     }
 

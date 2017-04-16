@@ -109,7 +109,7 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
     }
 
     @Override
-    public boolean exsistsByIdArtikel(int idArtikel) {
+    public boolean existsByIdArtikel(int idArtikel) {
        List<BestelArtikel> bestelArtikelList = readByIdArtikel (idArtikel);
        boolean isEmpty = bestelArtikelList.isEmpty();
        return !isEmpty;    

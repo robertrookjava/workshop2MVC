@@ -55,7 +55,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     @Override
     public void delete(int idArtikel) throws Exception {
         if (!exists(idArtikel)) throw new idArtikelBestaatNiet();
-        
+        if (bestelArtikelService.existsByIdArtikel(idArtikel)) throw new ArtikelInBestellingen();
         artikelRepository.delete(idArtikel);
     }
 

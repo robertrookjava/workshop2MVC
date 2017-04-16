@@ -18,5 +18,6 @@ import java.util.List;
  */
 @Repository
 public interface BestelArtikelRepository extends JpaRepository<BestelArtikel, BestelArtikelPK> {
-    
+    List<BestelArtikel> readByIdBestelling (int idBestelling);
+    List<BestelArtikel> readByIdArtikel (int idArtikel);
 }

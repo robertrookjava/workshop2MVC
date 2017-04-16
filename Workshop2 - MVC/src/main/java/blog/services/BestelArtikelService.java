@@ -25,6 +25,8 @@ public interface BestelArtikelService {
     List<BestelArtikel> readByIdBestelling (int idBestelling) throws Exception;
     List<BestelArtikel> readByIdArtikel (int idArtikel) throws Exception;
     
+    int aantal (int idBestelling, int idArtikel) throws Exception;
+    
     
     
     boolean exists(BestelArtikel bestelArtikel);

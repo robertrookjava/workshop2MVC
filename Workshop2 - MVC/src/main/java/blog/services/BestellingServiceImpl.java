@@ -100,6 +100,20 @@ public class BestellingServiceImpl implements BestellingService {
         return(!bestellingList.isEmpty());
     }
 
+    @Override
+    public List<Bestelling> readByIdKlantIdAccount(int idKlant, int idAccount) throws Exception {
+        if (!klantService.exists(idKlant)) throw new idKlantBestaatNiet();
+        if (!accountService.exists(idAccount)) throw new idAccountBestaatNiet();
+        return bestellingRepository.readByIdKlantAndIdAccount(idKlant, idAccount);
+    }
+
+    @Override
+    public boolean existsByIdKlantIdAccount(int idKlant, int idAccount) throws Exception {
+        List<Bestelling> bestellingList = readByIdKlantIdAccount(idKlant,idAccount);
+        boolean isEmpty = bestellingList.isEmpty();
+        return !isEmpty;
+    }
+
     
 
     

@@ -18,4 +18,5 @@ import java.util.List;
 @Repository
 public interface BestellingRepository extends JpaRepository<Bestelling, Integer> {
     List<Bestelling> readByIdKlant(int idKlant);
+    List<Bestelling> readByIdKlantAndIdAccount (int idKlant, int idAccount);
 }

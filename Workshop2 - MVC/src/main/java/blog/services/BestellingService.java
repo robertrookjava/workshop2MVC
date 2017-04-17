@@ -32,6 +32,9 @@ public interface BestellingService {
     List<Bestelling> readByIdKlant (int idKlant) throws Exception;
     boolean existsByIdKlant (int Klant) throws Exception;
     
+    List<Bestelling> readByIdKlantIdAccount(int idKlant, int idAccount) throws Exception;
+    boolean existsByIdKlantIdAccount (int idKlant, int idAccount) throws Exception;
+    
     
     
     

@@ -1,5 +1,5 @@
 package blog.services;
-import blog.models.User;
+import blog.models.*;
 import blog.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -16,8 +16,14 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public boolean authenticate(String username, String password) {
-         // Provide a sample password check: username == password
-         //return Objects.equals(username, password);
-         return accountService.exists(username, password);
+         
+        return accountService.exists(username, password);
+    }
+    
+    @Override
+    public int idAccount (String username, String password){
+        List<Account> accountList = accountService.read(username, password);
+        Account account = accountList.iterator().next();
+        return account.getIdAccount();
     }
 }

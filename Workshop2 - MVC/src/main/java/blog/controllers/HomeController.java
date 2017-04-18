@@ -98,12 +98,16 @@ public class HomeController {
         String invoer5 = request.getParameter("invoer5");
         String invoer6 = request.getParameter("invoer6");
         
+        
+        
         System.out.println("invoer1 = " + invoer1);
         System.out.println("invoer2 = " + invoer2);
         System.out.println("invoer3 = " + invoer3);
         System.out.println("invoer4 = " + invoer4);
         System.out.println("invoer5 = " + invoer5);
         System.out.println("invoer6 = " + invoer6);
+        
+        
         
         
         
@@ -118,14 +122,16 @@ public class HomeController {
        //Boolean exists = accountservice.exists(invoer1,invoer2);
        //System.out.println (exists);
        
-       boolean b1 = checkFormat.isInteger(invoer1);
-       boolean b2 = checkFormat.isBigDecimal(invoer2);
-       boolean b3 = checkFormat.isEmailAdresOfLeeg(invoer3);
+       //boolean b1 = checkFormat.isInteger(invoer1);
+       //boolean b2 = checkFormat.isBigDecimal(invoer2);
+       //boolean b3 = checkFormat.isEmailAdresOfLeeg(invoer3);
        
        
-       if (!b1) throw new NietGeheel();
-       if (!b2) throw new NietNumeriek();
-       if (!b3) throw new EmailadresOngeldig();
+       //if (!b1) throw new NietGeheel();
+       //if (!b2) throw new NietNumeriek();
+       //if (!b3) throw new EmailadresOngeldig();
+       
+       //artikelService.create(invoer1, new BigDecimal(invoer2), Integer.parseInt(invoer3));
        
        
        

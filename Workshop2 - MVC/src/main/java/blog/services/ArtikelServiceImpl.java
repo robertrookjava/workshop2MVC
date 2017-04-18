@@ -10,6 +10,7 @@ import blog.Exceptions.ArtikelprijsNegatief;
 import blog.Exceptions.VoorraadNegatief;
 import blog.models.*;
 import blog.repositories.ArtikelRepository;
+import blog.repositories.BestelArtikelRepository;
 import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class ArtikelServiceImpl implements ArtikelService {
     
     @Autowired
     private BestelArtikelService bestelArtikelService;
+    
+    @Autowired
+    private BestelArtikelRepository bestelArtikelRepository;
     
     
 

@@ -18,11 +18,10 @@ import java.util.List;
  */
 @Repository
 public interface BestelArtikelRepository extends JpaRepository<BestelArtikel, BestelArtikelPK> {
-    //@Query("SELECT t FROM BestelArtikel t where t.idBestelling = ?1")
-    //List<BestelArtikel> readByIdBestelling (int idBestelling);
+    @Query("SELECT t FROM BestelArtikel t where t.bestelArtikelPK.idBestelling = ?1")
+    List<BestelArtikel> readByIdBestelling (int idBestelling);
     
-    //@Query("SELECT t FROM BestelArtikel t where t.idBestelling = ?1")
-    //List<BestelArtikel> readByIdArtikel (int idArtikel);
-    
-    
+    @Query("SELECT t FROM BestelArtikel t where t.bestelArtikelPK.idArtikel = ?1")
+    List<BestelArtikel> readByIdArtikel (int idArtikel);
+   
 }

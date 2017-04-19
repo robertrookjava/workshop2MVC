@@ -17,7 +17,7 @@ import blog.format.CheckFormat;
 import blog.forms.LoginForm;
 import blog.models.Account;
 import blog.models.Accounttype;
-import blog.models.Post;
+import blog.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -132,10 +132,21 @@ public class HomeController {
        //if (!b3) throw new EmailadresOngeldig();
        
        //artikelService.create(invoer1, new BigDecimal(invoer2), Integer.parseInt(invoer3));
+       //artikelService.delete(Integer.parseInt(invoer1))
+       //boolean exists = artikelService.exists(Integer.parseInt(invoer1));
+       // boolean exists =artikelService.exists(invoer1);
        
+       //artikelService.update(Integer.parseInt(invoer1), invoer2, new BigDecimal(invoer3), Integer.parseInt(invoer4));
+       //klantService.create(invoer1, invoer2, invoer3, invoer4, invoer5);
+       //Klant klant = klantService.read(Integer.parseInt(invoer1));
+       //Boolean exists = klantService.exists(invoer1);
        
-       
-
+       //klantService.update(Integer.parseInt(invoer1), invoer2, invoer3, invoer4, invoer5, invoer6);
+  
+       //bestellingService.create(Integer.parseInt(invoer1), Integer.parseInt(invoer2) );
+       //bestellingService.delete(Integer.parseInt(invoer1));
+      //Bestelling bestelling = bestellingService.read(Integer.parseInt(invoer1));
+       //System.out.println(bestelling.getIdKlant());
        
         
         return "answers/answer1";

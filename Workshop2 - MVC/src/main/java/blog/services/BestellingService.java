@@ -26,6 +26,8 @@ public interface BestellingService {
     
     List<Bestelling> readAll();
     
+    List<Bestelling> readByIdAccount(int idAccount);
+    
     boolean exists (Bestelling bestelling);
     boolean exists (int idBestelling);
     

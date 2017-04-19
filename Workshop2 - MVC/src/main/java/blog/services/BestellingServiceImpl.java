@@ -114,6 +114,11 @@ public class BestellingServiceImpl implements BestellingService {
         return !isEmpty;
     }
 
+    @Override
+    public List<Bestelling> readByIdAccount(int idAccount) {
+       return bestellingRepository.readByIdAccount(idAccount);
+    }
+
     
 
     

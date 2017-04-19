@@ -52,7 +52,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
     
     @Autowired
+    private UserService userService;
+    
+    @Autowired
     private AccountService accountservice;
+    
     
     @Autowired
     private AccounttypeService accounttypeservice;
@@ -71,6 +75,8 @@ public class HomeController {
     
     @Autowired 
     private CheckFormat checkFormat;
+    
+    
     
     
     
@@ -147,6 +153,26 @@ public class HomeController {
        //bestellingService.delete(Integer.parseInt(invoer1));
       //Bestelling bestelling = bestellingService.read(Integer.parseInt(invoer1));
        //System.out.println(bestelling.getIdKlant());
+      //List <Bestelling> bestellingList = bestellingService.readByIdKlantIdAccount(Integer.parseInt(invoer1), Integer.parseInt(invoer2));
+      //List <Bestelling> bestellingList = bestellingService.readByIdAccount(Integer.parseInt(invoer1));
+      // for (Bestelling bestelling:bestellingList){
+      //     System.out.println(bestelling.getIdBestelling());
+      // }
+      //int idBestelling = bestellingService.create(Integer.parseInt(invoer1), Integer.parseInt(invoer2) 
+      //bestelArtikelService.create(Integer.parseInt(invoer1), Integer.parseInt(invoer2), Integer.parseInt(invoer3));
+      //bestelArtikelService.delete(Integer.parseInt(invoer1), Integer.parseInt(invoer2));
+      //BestelArtikel bestelArtikel = bestelArtikelService.read(Integer.parseInt(invoer1), Integer.parseInt(invoer2));
+      //List<BestelArtikel> bestelArtikelList = bestelArtikelService.readByIdArtikel(Integer.parseInt(invoer1));
+      //for (BestelArtikel bestelArtikel:bestelArtikelList){
+      //     System.out.println(bestelArtikel.getIdBestelling());
+      // }
+      //System.out.println(bestelArtikel.getAantal());
+     
+     int idAccount = userService.idAccount(invoer1, invoer2);
+     
+      
+    
+      System.out.println(idAccount);
        
         
         return "answers/answer1";

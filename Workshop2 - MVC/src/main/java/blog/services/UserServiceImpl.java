@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public int idAccount (String username, String password){
+        if (!authenticate(username,password)) return 0;
         List<Account> accountList = accountService.read(username, password);
         Account account = accountList.iterator().next();
         return account.getIdAccount();

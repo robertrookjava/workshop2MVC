@@ -61,8 +61,9 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
         BestelArtikelPK bestelArtikelPK = new BestelArtikelPK();
         bestelArtikelPK.setIdBestelling(idBestelling);
         bestelArtikelPK.setIdArtikel(idArtikel);
-        bestelArtikelRepository.delete(bestelArtikelPK);
         artikelService.verhoogVoorraad(idArtikel, aantal(idBestelling,idArtikel));
+        bestelArtikelRepository.delete(bestelArtikelPK);
+        
     }
 
     @Override

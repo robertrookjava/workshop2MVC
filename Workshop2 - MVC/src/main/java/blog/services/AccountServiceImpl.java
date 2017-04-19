@@ -58,7 +58,7 @@ public class AccountServiceImpl implements AccountService{
     
     @Override
     public List<Account> read(String gebruikersnaam, String wachtwoord) {
-         return this.accountRepository.readByGebruikersnaamOrWachtwoord(gebruikersnaam, wachtwoord);
+         return this.accountRepository.readByGebruikersnaamAndWachtwoord(gebruikersnaam, wachtwoord);
     }
 
     @Override

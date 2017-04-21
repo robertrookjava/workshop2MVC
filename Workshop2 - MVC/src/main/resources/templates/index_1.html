@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head >
+<title>Robert Rook</title>
+</head>
+<body>
+        <h1>Robert Rook - Ultimate Jazz </h1>
+        <h2>Customer edition</h2>
+        <!-- 
+            Set the action attribute to "/exercise12/saveCustomer.html", and use
+            th:object to bind the ${customer} variable as the form-backing bean. 
+        -->
+        <form method="post">
+            <!-- Use th:field to set field 'id' here -->
+            <input type="hidden" />
+            
+            <!-- Use th:field to show *{firstName} -->
+            <p>
+            <label for="invoer1">invoer1:</label>
+            <input type="text" name ="invoer1" />
+            </p>
+            
+            <!-- Use th:field to show *{lastName} -->
+            <p>
+            <label for="invoer2">invoer2:</label>
+            <input type="text" name ="invoer2" />
+            </p>
+            
+            <!-- Use th:field to show *{lastName} -->
+            <p>
+            <label for="invoer3">invoer3:</label>
+            <input type="text" name ="invoer3"/>
+            </p>
+            
+            <p>
+            <label for="invoer4">invoer4:</label>
+            <input type="text" name ="invoer4" />
+            </p>
+            
+            <p>
+            <label for="invoer5">invoer5:</label>
+            <input type="text" name ="invoer5" />
+            </p>
+            
+            
+            <p>
+            <label for="invoer6">invoer6:</label>
+            <input type="text" name ="invoer6"/>
+            </p>
+            
+            
+            
+            
+            <input type="submit" />
+        </form>
+    </body>
+</html>

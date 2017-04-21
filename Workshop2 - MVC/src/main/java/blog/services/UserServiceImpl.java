@@ -27,4 +27,11 @@ public class UserServiceImpl implements UserService {
         Account account = accountList.iterator().next();
         return account.getIdAccount();
     }
+
+    @Override
+    public Account account(String username, String password) {
+        List<Account> accountList = accountService.read(username, password);
+        Account account = accountList.iterator().next();
+        return account;
+    }
 }

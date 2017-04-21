@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head >
+<title>Robert Rook</title>
+</head>
+<body>
+        <h1>Robert Rook - Ultimate Jazz </h1>
+        <h2>Customer edition</h2>
+        <!-- 
+            Set the action attribute to "/exercise12/saveCustomer.html", and use
+            th:object to bind the ${customer} variable as the form-backing bean. 
+        -->
+        <form method="post" th:object="${form1}">
+            
+  <div><label for="invoer1">Invoer1:</label></div>
+  <input id="invoer1" type="text" name="invoer1" th:value="*{invoer1}" />
+  <span class="formError" th:if="${#fields.hasErrors('invoer1')}"
+                                th:errors="*{invoer1}">Ongeldige invoer1</span>
+  
+  <div><label for="invoer2">Invoer2:</label></div>
+  <input id="invoer2" type="text" name="invoer1" th:value="*{invoer2}" />
+  <span class="formError" th:if="${#fields.hasErrors('invoer2')}"
+                                th:errors="*{invoer2}">Ongeldige invoer2</span>
+  
+  <div><label for="invoer1">Invoer3:</label></div>
+  <input id="invoer3" type="text" name="invoer1" th:value="*{invoer3}" />
+  <span class="formError" th:if="${#fields.hasErrors('invoer3')}"
+                                th:errors="*{invoer3}">Ongeldige invoer1</span>
+  
+  <div><label for="invoer1">Invoer4:</label></div>
+  <input id="invoer4" type="text" name="invoer1" th:value="*{invoer4}" />
+  <span class="formError" th:if="${#fields.hasErrors('invoer4')}"
+                                th:errors="*{invoer4}">Ongeldige invoer4</span>
+  
+  <div><label for="invoer1">Invoer5:</label></div>
+  <input id="invoer5" type="text" name="invoer5" th:value="*{invoer5}" />
+  <span class="formError" th:if="${#fields.hasErrors('invoer5')}"
+                                th:errors="*{invoer5}">Ongeldige invoer1</span>
+  
+  <div><label for="invoer6">Invoer6:</label></div>
+  <input id="invoer6" type="text" name="invoer6" th:value="*{invoer6}" />
+  <span class="formError" th:if="${#fields.hasErrors('invoer6')}"
+                                th:errors="*{invoer6}">Ongeldige invoer6</span>
+
+  
+
+  <div><input type="submit" value="Login"/>
+  <a href="register.html" th:href="@{/users/register}">[Go to Register]</a></div>
+</form>
+    </body>
+</html>

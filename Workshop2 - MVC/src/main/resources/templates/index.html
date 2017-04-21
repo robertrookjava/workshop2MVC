@@ -1,58 +1,31 @@
-<!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
-<head >
-<title>Robert Rook</title>
+<head th:replace="layout :: site-head">
+  <title>Login</title>
 </head>
+
 <body>
-        <h1>Robert Rook - Ultimate Jazz </h1>
-        <h2>Customer edition</h2>
-        <!-- 
-            Set the action attribute to "/exercise12/saveCustomer.html", and use
-            th:object to bind the ${customer} variable as the form-backing bean. 
-        -->
-        <form method="post">
-            <!-- Use th:field to set field 'id' here -->
-            <input type="hidden" />
-            
-            <!-- Use th:field to show *{firstName} -->
-            <p>
-            <label for="invoer1">invoer1:</label>
-            <input type="text" name ="invoer1" />
-            </p>
-            
-            <!-- Use th:field to show *{lastName} -->
-            <p>
-            <label for="invoer2">invoer2:</label>
-            <input type="text" name ="invoer2" />
-            </p>
-            
-            <!-- Use th:field to show *{lastName} -->
-            <p>
-            <label for="invoer3">invoer3:</label>
-            <input type="text" name ="invoer3"/>
-            </p>
-            
-            <p>
-            <label for="invoer4">invoer4:</label>
-            <input type="text" name ="invoer4" />
-            </p>
-            
-            <p>
-            <label for="invoer5">invoer5:</label>
-            <input type="text" name ="invoer5" />
-            </p>
-            
-            
-            <p>
-            <label for="invoer6">invoer6:</label>
-            <input type="text" name ="invoer6"/>
-            </p>
-            
-            
-            
-            
-            <input type="submit" />
-        </form>
-    </body>
+
+<header th:replace="layout :: site-header" />
+
+<h1>Login in the Blog</h1>
+
+<form method="post" th:object="${loginForm}">
+  <div><label for="username">Username:</label></div>
+  <input id="username" type="text" name="username" th:value="*{username}" />
+  <span class="formError" th:if="${#fields.hasErrors('username')}"
+                                th:errors="*{username}">Invalid username</span>
+
+  <div><label for="password" th:value="*{username}">Password:</label></div>
+  <input id="password" type="password" name="password" th:value="*{password}" />
+  <span class="formError" th:if="${#fields.hasErrors('password')}"
+                                th:errors="*{password}">Invalid password</span>
+
+  <div><input type="submit" value="Login"/>
+  <a href="register.html" th:href="@{/users/register}">[Go to Register]</a></div>
+</form>
+
+<footer th:replace="layout :: site-footer" />
+
+</body>
+
 </html>

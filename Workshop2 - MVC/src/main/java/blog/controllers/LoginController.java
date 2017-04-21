@@ -114,7 +114,8 @@ public class LoginController {
 
         notifyService.addInfoMessage("Login successful");
         //return "redirect:/";
-        return "answers/answer1";
+        //return "answers/answer1";
+        return "redirect:/index2";
     }    
     
     

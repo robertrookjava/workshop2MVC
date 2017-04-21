@@ -6,6 +6,7 @@
 package blog.controllers;
 
 import blog.forms.LoginForm;
+import blog.models.Account;
 import blog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import blog.services.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,8 +42,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController2 {
     
 @RequestMapping(value = "/index2", method = RequestMethod.GET)
-    public String indexGet(Model model, HttpServletRequest request) {
+    public String indexGet(Model model, HttpServletRequest request, HttpSession httpSession) {
         
+        Account account = (Account) httpSession.getAttribute("Account");
+        System.out.println("Robert 7: ingelogde idAccount =" +account.getIdAccount());
         return "index2";
     }
     
@@ -52,7 +56,7 @@ public class HomeController2 {
      * @return
      */
     @RequestMapping(value = "/index2", method = RequestMethod.POST)
-    public String indexPost(Model model, HttpServletRequest request) {
+    public String indexPost(Model model, HttpServletRequest request, HttpSession httpSession) {
         String invoer1 = request.getParameter("invoer1");
         String invoer2 = request.getParameter("invoer2");
         String invoer3 = request.getParameter("invoer3");
@@ -67,7 +71,12 @@ public class HomeController2 {
         System.out.println("invoer5 = " + invoer5);
         System.out.println("invoer6 = " + invoer6);
         
-        return "ouput2";
+        Account account = (Account) httpSession.getAttribute("Account");
+        System.out.println("Robert 8: ingelogde idAccount =" +account.getIdAccount());
+        
+        return "answers/answer1";
+        
+        
     }    
     
     

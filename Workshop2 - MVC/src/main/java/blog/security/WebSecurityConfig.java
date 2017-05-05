@@ -28,9 +28,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        System.out.println("Robert: in configureGlobal");
         auth
             .inMemoryAuthentication()
-                .withUser("Robert Rook").password("Ultimate Jazz").roles("USER");
+                .withUser("Robert").password("Rook").roles("USER");
         // tijdelijk even met in memory authentication om configureGlobal te testen
         //auth
         //    .userDetailsService(new UserDetailsServiceImpl());

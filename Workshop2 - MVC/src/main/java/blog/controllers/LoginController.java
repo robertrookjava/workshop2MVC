@@ -92,11 +92,11 @@ public class LoginController {
         return "/login/login";
     }
 
-    //@RequestMapping(value = "/login/login", method = RequestMethod.POST)
-    //public String loginPost() {
+    @RequestMapping(value = "/login/login", method = RequestMethod.POST)
+    public String loginPost() {
         
-    //    return "home";
-    //}    
+        return "home";
+    }    
     
     
 }

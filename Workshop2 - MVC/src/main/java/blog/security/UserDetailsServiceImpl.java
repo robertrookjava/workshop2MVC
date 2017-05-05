@@ -21,7 +21,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  */
 public class UserDetailsServiceImpl implements UserDetailsService {
     
-    // even tijdelijk omdat @autowired niet schijnt te werken.
+    // even tijdelijk omdat @Autowired niet schijnt te werken.
     //private UserFinder userFinder = new UserFinderImpl();
     
     @Autowired

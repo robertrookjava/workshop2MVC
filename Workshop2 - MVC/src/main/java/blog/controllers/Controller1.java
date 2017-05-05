@@ -51,7 +51,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //}
 
 @Controller
-public class LoginController {
+public class Controller1 {
     
     @Autowired
     private UserService userService;
@@ -87,16 +87,16 @@ public class LoginController {
     
     
     
-@RequestMapping(value = "/login/login", method = RequestMethod.GET)
-    public String loginGet() {
-        return "/login/login";
+@RequestMapping(value = "/", method = RequestMethod.GET)
+    public String indexGet() {
+        return "index";
     }
 
-    //@RequestMapping(value = "/login/login", method = RequestMethod.POST)
-    //public String loginPost() {
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String indexPost() {
         
-    //    return "home";
-    //}    
+        return "index";
+    }    
     
     
 }

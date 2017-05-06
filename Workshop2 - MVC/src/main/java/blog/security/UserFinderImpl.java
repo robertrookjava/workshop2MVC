@@ -22,13 +22,16 @@ public class UserFinderImpl implements UserFinder {
 
     @Override
     public User findByUserName (String username){
-        if (username.equals("Robert Rook")){
+        if (username.equals("Robert")){
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            String password = "Ultimate Jazz";
+            String password = "Rook";
             System.out.println("Hallo in FindByUserName, User gevonden");
             return new User(username,password,authorities); 
             
+        }
+        else {
+            // zoeken via de account tabel
         }
         return null;
         

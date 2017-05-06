@@ -11,30 +11,33 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .anyRequest().authenticated()
-                .and()
-            .formLogin()
-                .loginPage("/login/login")
-                .permitAll()
-                .and()
-            .logout()
-                .permitAll();
-    }
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//            .authorizeRequests()
+//                .antMatchers("/").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//            .formLogin()
+//                .loginPage("/login/login")
+//                .permitAll()
+//                .and()
+//            .logout()
+//                .permitAll();
+//    }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        System.out.println("Robert: in configureGlobal");
-        auth
-            .inMemoryAuthentication()
-                .withUser("Robert").password("Rook").roles("USER");
+    
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        System.out.println("Robert2: in Global");
+        auth.inMemoryAuthentication().withUser("Robert").password("Rook").roles("USER");
+//        auth
+//            .inMemoryAuthentication()
+//                .withUser("Robert").password("Rook").roles("USER");
         // tijdelijk even met in memory authentication om configureGlobal te testen
         //auth
         //    .userDetailsService(new UserDetailsServiceImpl());
+       
         
     }
 }

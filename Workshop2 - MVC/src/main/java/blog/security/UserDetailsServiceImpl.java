@@ -24,20 +24,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     // even tijdelijk omdat @Autowired niet schijnt te werken.
     //private UserFinder userFinder = new UserFinderImpl();
     
-    @Autowired
-    private UserFinder userFinder;
     
-    //private User findByUserName (String username){
-    //    if (username.equals("Robert Rook")){
-    //        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-    //        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-    //        String password = "Ultimate Jazz";
-    //        return new User(username,password,authorities); 
-            
-     //   }
-     //   return null;
-        
-    //}
+    private UserFinder userFinder = new UserFinderImpl();
+    
+    
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

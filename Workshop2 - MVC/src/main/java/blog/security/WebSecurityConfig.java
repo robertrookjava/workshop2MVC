@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
+//    public void configure(HttpSecurity http) throws Exception {
 //        http
 //            .authorizeRequests()
 //                .antMatchers("/").permitAll()
@@ -30,13 +30,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         System.out.println("Robert2: in Global");
-        auth.inMemoryAuthentication().withUser("Robert").password("Rook").roles("USER");
-//        auth
+        //auth.inMemoryAuthentication().withUser("Robert").password("Rook").roles("USER");
+//       auth
 //            .inMemoryAuthentication()
 //                .withUser("Robert").password("Rook").roles("USER");
         // tijdelijk even met in memory authentication om configureGlobal te testen
-        //auth
-        //    .userDetailsService(new UserDetailsServiceImpl());
+        auth.userDetailsService(new UserDetailsServiceImpl());
        
         
     }

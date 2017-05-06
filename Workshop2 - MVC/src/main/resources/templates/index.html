@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <title>Spring Security Example</title>
+    <head th:replace="layout :: site-head">
+        <title>Workshop 2 application</title>
     </head>
     <body>
+        <header th:replace="layout :: site-header" />
         <h1>Welcome to Workshop2 application!</h1>
-        
+        <p></p>
         <p>Click <a th:href="@{/home}">here</a> to log in.</p>
+        <footer th:replace="layout :: site-footer" />
     </body>
 </html>

@@ -39,7 +39,9 @@ public class UserFinderImpl implements UserFinder {
         else {
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            String password =userService.password(username);
+            System.out.println("Robert5: username = "+ username);
+            String password =userService.getPassword(username);
+            System.out.println("Robert7: password = "+ password);
             return new User(username,password,authorities); 
             
         }

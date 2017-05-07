@@ -63,6 +63,7 @@ public class AccountServiceImpl implements AccountService{
     
     @Override
     public List<Account> read(String gebruikersnaam) {
+        System.out.println("Robert 11: gebruikersnaam = " + gebruikersnaam);
         return this.accountRepository.readByGebruikersnaam(gebruikersnaam);
     }
 

@@ -9,8 +9,8 @@ import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private AccountService accountService;
+    //@Autowired werkt niet
+    private AccountService accountService = new AccountServiceImpl();
     
     
     
@@ -36,8 +36,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String password(String username) {
+    public String getPassword(String username) {
+        System.out.println("Robert8: in getPassword username = "+ username);
         List<Account> accountList = accountService.read(username);
+        System.out.println("Robert 9: zijn we er nog?");
         Account account = accountList.iterator().next();
         return account.getWachtwoord();
     }

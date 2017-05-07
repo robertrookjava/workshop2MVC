@@ -60,6 +60,11 @@ public class AccountServiceImpl implements AccountService{
     public List<Account> read(String gebruikersnaam, String wachtwoord) {
          return this.accountRepository.readByGebruikersnaamAndWachtwoord(gebruikersnaam, wachtwoord);
     }
+    
+    @Override
+    public List<Account> read(String gebruikersnaam) {
+        return this.accountRepository.readByGebruikersnaam(gebruikersnaam);
+    }
 
     @Override
     public boolean exists(Account account) {
@@ -77,6 +82,8 @@ public class AccountServiceImpl implements AccountService{
        boolean isEmpty = accountlist.isEmpty();
        return !isEmpty;
     }
+
+    
 
     
 

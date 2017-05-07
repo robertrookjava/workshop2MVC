@@ -18,4 +18,5 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
     List<Account> readByGebruikersnaamAndWachtwoord(String gebruikersnaam, String wachtwoord);
+    List<Account> readByGebruikersnaam(String gebruikersnaam);
 }

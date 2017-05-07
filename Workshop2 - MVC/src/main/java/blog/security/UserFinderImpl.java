@@ -5,8 +5,11 @@
  */
 package blog.security;
 
+import blog.services.UserService;
+import blog.services.UserServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -19,6 +22,9 @@ import org.springframework.stereotype.Service;
  */
 @Component
 public class UserFinderImpl implements UserFinder {
+    
+    // @Autowired werkt niet
+    private UserService userService = new UserServiceImpl();
 
     @Override
     public User findByUserName (String username){
@@ -31,10 +37,13 @@ public class UserFinderImpl implements UserFinder {
             
         }
         else {
-            // zoeken via de account tabel
+            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            String password =userService.password(username);
+            return new User(username,password,authorities); 
+            
         }
-        return null;
-        
+      
     }
     
 }

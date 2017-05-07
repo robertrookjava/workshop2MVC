@@ -17,6 +17,7 @@ public interface AccountService {
     Account read (int idAccount);
     Account read (Account account);
     List<Account> read (String gebruikersnaam, String password);
+    List<Account> read (String gebruikersnaam);
     boolean exists (Account account);
     boolean exists (int idAccount);
     boolean exists (String gebruikersnaam, String password);

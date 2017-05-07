@@ -8,4 +8,5 @@ public interface UserService {
     boolean authenticate(String username, String password);
     int idAccount (String username, String password);
     Account account (String username, String password);
+    String password (String username);
 }

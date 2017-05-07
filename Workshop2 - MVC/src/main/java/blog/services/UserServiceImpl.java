@@ -21,11 +21,13 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
-    public int idAccount (String username, String password){
-        if (!authenticate(username,password)) return 0;
-        List<Account> accountList = accountService.read(username, password);
-        Account account = accountList.iterator().next();
-        return account.getIdAccount();
+    public int getIdAccount (String username, String password){
+        // tijdelijk even 1 totdat mijn @Autowired String security probleem is opgelost
+        return 1;
+//        if (!authenticate(username,password)) return 0;
+//        List<Account> accountList = accountService.read(username, password);
+//        Account account = accountList.iterator().next();
+//        return account.getIdAccount();
     }
 
     @Override

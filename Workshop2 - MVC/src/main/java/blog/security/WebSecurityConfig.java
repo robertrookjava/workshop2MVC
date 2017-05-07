@@ -30,12 +30,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         System.out.println("Robert2: in Global");
-        //auth.inMemoryAuthentication().withUser("Robert").password("Rook").roles("USER");
-//       auth
-//            .inMemoryAuthentication()
-//                .withUser("Robert").password("Rook").roles("USER");
-        // tijdelijk even met in memory authentication om configureGlobal te testen
-        auth.userDetailsService(new UserDetailsServiceImpl());
+        
+        // even hardgecodeerd facken omdat het zoeken in de database niet lukt voordat je ingelogd bent omdat
+        //@Autowired dan nog niet werkt waardoor ik mijn JPARepositories niet kan gebruiken
+        auth.inMemoryAuthentication().
+                withUser("Robert Rook").
+                        password("Geheim").roles("USER").and()
+                .withUser("Jeroen Rook").
+                        password("Welkom").roles("User");
+
+        // als @Autowired wel werkt dan onderstaande regel gebruiken
+        //auth.userDetailsService(new UserDetailsServiceImpl());
        
         
     }

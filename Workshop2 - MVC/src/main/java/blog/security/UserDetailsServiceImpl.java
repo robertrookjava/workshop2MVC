@@ -14,18 +14,20 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author robertrook
  */
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     
     // even tijdelijk omdat @Autowired niet schijnt te werken.
     //private UserFinder userFinder = new UserFinderImpl();
     
-    
-    private UserFinder userFinder = new UserFinderImpl();
+    @Autowired
+    private UserFinder userFinder;
     
     
 

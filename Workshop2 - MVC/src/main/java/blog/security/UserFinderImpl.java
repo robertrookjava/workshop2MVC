@@ -23,8 +23,8 @@ import org.springframework.stereotype.Service;
 @Component
 public class UserFinderImpl implements UserFinder {
     
-    // @Autowired werkt niet
-    private UserService userService = new UserServiceImpl();
+    @Autowired
+    private UserService userService;
 
     @Override
     public User findByUserName (String username){

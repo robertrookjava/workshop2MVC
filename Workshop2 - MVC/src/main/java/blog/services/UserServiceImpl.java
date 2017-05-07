@@ -9,8 +9,8 @@ import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService {
-    //@Autowired werkt niet
-    private AccountService accountService = new AccountServiceImpl();
+    @Autowired
+    private AccountService accountService;
     
     
     

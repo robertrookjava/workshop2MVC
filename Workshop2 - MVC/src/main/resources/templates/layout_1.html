@@ -18,9 +18,9 @@
       <a href="users/index.html" th:href="@{/users}">Users</a>
       <div id="logged-in-info">
           <span>Hello, <b>(user)</b></span>
-          <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+          <form method="post" th:action="@{/users/logout}">
+              <input type="submit" value="Logout"/>
+          </form>
       </div>
     </header>
 

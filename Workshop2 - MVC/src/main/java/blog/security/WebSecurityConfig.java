@@ -25,11 +25,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //            .logout()
 //                .permitAll();
 //    }
-
-    
     @Override
+    protected void configure(HttpSecurity http) throws Exception {
+	http
+	.csrf().disable();
+}
+    
+    @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         System.out.println("Robert2: in Global");
+        
         
         // even hardgecodeerd facken omdat het zoeken in de database niet lukt voordat je ingelogd bent omdat
         //@Autowired dan nog niet werkt waardoor ik mijn JPARepositories niet kan gebruiken

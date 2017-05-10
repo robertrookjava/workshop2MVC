@@ -5,25 +5,13 @@
  */
 package blog.controllers;
 
-import blog.Exceptions.VoorraadNegatief;
-import blog.Exceptions.ArtikelnaamLeeg;
-import blog.Exceptions.ArtikelprijsNegatief;
-import blog.Exceptions.KlantAchternaamLeeg;
-import blog.Exceptions.KlantVoornaamLeeg;
-import blog.Exceptions.EmailadresOngeldig;
-import blog.Exceptions.NietGeheel;
-import blog.Exceptions.NietNumeriek;
-import blog.format.CheckFormat;
-import blog.forms.Form1;
 import blog.forms.LoginForm;
 import blog.models.Account;
-import blog.models.Accounttype;
-import blog.models.*;
+import blog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import blog.services.*;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
@@ -51,51 +39,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 //}
 
 @Controller
-public class Controller1 {
+public class index2Controller {
     
-    @Autowired
-    private UserService userService;
-    
-    @Autowired
-    private AccountService accountservice;
-    
-    
-    @Autowired
-    private AccounttypeService accounttypeservice;
-    
-    @Autowired
-    private ArtikelService artikelService;
-    
-    @Autowired
-    private BestelArtikelService bestelArtikelService;
-    
-    @Autowired
-    private BestellingService bestellingService;
-    
-    @Autowired
-    private KlantService klantService;
-    
-    @Autowired 
-    private CheckFormat checkFormat;
-    
-    @Autowired
-    private NotificationService notifyService;
-    
-    
-    
-    
-    
-    
-    
-@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String indexGet() {
-        return "index";
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String indexPost() {
+@RequestMapping(value = "index2", method = RequestMethod.GET)
+    public String indexGet(Model model, HttpServletRequest request, HttpSession httpSession) {
         
-        return "index";
+        
+        return "index2";
+    }
+    
+    /**
+     *
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "index2", method = RequestMethod.POST)
+    public String indexPost(Model model, HttpServletRequest request, HttpSession httpSession) {
+        String invoer1 = request.getParameter("invoer1");
+        String invoer2 = request.getParameter("invoer2");
+        String invoer3 = request.getParameter("invoer3");
+        String invoer4 = request.getParameter("invoer4");
+        String invoer5 = request.getParameter("invoer5");
+        String invoer6 = request.getParameter("invoer6");
+        
+        System.out.println("invoer1 = " + invoer1);
+        System.out.println("invoer2 = " + invoer2);
+        System.out.println("invoer3 = " + invoer3);
+        System.out.println("invoer4 = " + invoer4);
+        System.out.println("invoer5 = " + invoer5);
+        System.out.println("invoer6 = " + invoer6);
+        
+        
+        
+        return "answers/answer1";
+        
+        
     }    
     
     

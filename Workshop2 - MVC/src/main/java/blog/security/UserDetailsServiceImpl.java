@@ -35,6 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //User user = this.findByUserName(username);
         System.out.println("Robert1, in loadUserByUsername");
+        System.out.println(userFinder==null);
         User user = userFinder.findByUserName(username);
         System.out.println("Robert2: username "+ user.getUsername());
         System.out.println("Robert3: password "+ user.getPassword());

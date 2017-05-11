@@ -51,7 +51,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //}
 
 @Controller
-public class AanmakenArtikelController {
+public class WijzigArtikelController {
     
     @Autowired
     private UserService userService;
@@ -87,29 +87,29 @@ public class AanmakenArtikelController {
     
     
     
-@RequestMapping(value = "/aanmakenartikel", method = RequestMethod.GET)
-    public String aanmakenArtikelGet() {
-        return "/aanmakenartikel";
+@RequestMapping(value = "/wijzigartikel", method = RequestMethod.GET)
+    public String wijzigArtikelGet() {
+        return "/wijzigartikel";
     }
 
-    @RequestMapping(value = "/aanmakenartikel", method = RequestMethod.POST)
+    @RequestMapping(value = "/wijzigartikel", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String aanmakenArtikelPost(Model model, HttpServletRequest request) throws Exception {
+    public String wijzigArtikelPost(Model model, HttpServletRequest request) throws Exception {
         
         
-        
+        String idArtikel = request.getParameter("idArtikel");
         String naam = request.getParameter("naam");
         String prijs = request.getParameter("prijs");
         String voorraad = request.getParameter("voorraad");
         
         
        
+        System.out.println("robert1: idArtikel = "+idArtikel );
+        System.out.println("robert2: naam = "+naam );
+        System.out.println("robert3: prijs = "+prijs );
+        System.out.println("robert4: voorraad = "+voorraad );
         
-        System.out.println("robert1: naam = "+naam );
-        System.out.println("robert2: prijs = "+prijs );
-        System.out.println("robert3: voorraad = "+voorraad );
-        
-        artikelService.create(naam, new BigDecimal(prijs), Integer.parseInt(voorraad));
+        artikelService.update(Integer.parseInt(idArtikel),naam, new BigDecimal(prijs),Integer.parseInt(voorraad));
         
         
         //klantService.update(Integer.parseInt(idKlant), voornaam, achternaam, tussenvoegsel, telefoonnummer, emailadres);

@@ -9,20 +9,45 @@
 
 <h1>Wijzig artikel</h1>
 
-<form method="post" th:object="${loginForm}">
-  <div><label for="username">Username:</label></div>
-  <input id="username" type="text" name="username" th:value="*{username}" />
-  <span class="formError" th:if="${#fields.hasErrors('username')}"
-                                th:errors="*{username}">Invalid username</span>
+<form method="post">
+            <!-- Use th:field to set field 'id' here -->
+            <input type="hidden" />
+            
+            <!-- Use th:field to show *{firstName} -->
+            <p>
+            <label for="invoer1">idArtikel:</label>
+            <input type="number" name ="idArtikel" min="1" required="true"/>
+            </p>
+            
+            <!-- Use th:field to show *{firstName} -->
+            <p>
+            <label for="invoer2">naam:</label>
+            <input type="text" name ="naam" required="true" />
+            </p>
+            
+            <!-- Use th:field to show *{lastName} -->
+            <p>
+            <label for="invoer3">prijs:</label>
+            <input type="number" name ="prijs" required="true" min="0" step="0.01" />
+            </p>
+            
+            <p>
+            <label for="invoer4">voorraad:</label>
+            <input type="number" name ="voorraad" required="true" min="0" />
+            </p>
+            
+            <!-- Use th:field to show *{lastName} -->
+            
+            
+            
+            <!-- Use th:field to show *{lastName} -->
+           
+            
+            
+            
+            <input type="submit" />
+        </form>
 
-  <div><label for="password" th:value="*{username}">Password:</label></div>
-  <input id="password" type="password" name="password" th:value="*{password}" />
-  <span class="formError" th:if="${#fields.hasErrors('password')}"
-                                th:errors="*{password}">Invalid password</span>
-
-  <div><input type="submit" value="Login"/>
-  <a href="register.html" th:href="@{/users/register}">[Go to Register]</a></div>
-</form>
 
 <footer th:replace="layout :: site-footer" />
 

@@ -64,12 +64,13 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public Artikel read(Artikel artikel) {
+    public Artikel read(Artikel artikel) throws Exception {
         return artikelRepository.findOne(artikel.getIdArtikel());
     }
 
     @Override
-    public Artikel read(int idArtikel) {
+    public Artikel read(int idArtikel) throws Exception {
+       if (!exists(idArtikel)) throw new idArtikelBestaatNiet(); 
        return artikelRepository.findOne(idArtikel);
     }
 

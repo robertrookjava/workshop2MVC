@@ -9,7 +9,14 @@
 
 <h1>Klant</h1>
 
-Toon hier de klant
+De gegevens van het klant 
+
+<p th:text="'idKlant: ' + ${klant.idKlant}" />
+<p th:text="'voornaam: ' + ${klant.voornaam} + ''" />
+<p th:text="'achternaam: ' + ${klant.achternaam} + ''" />
+<p th:text="'tussenvoegsel: ' + ${klant.tussenvoegsel} + ''" />
+<p th:text="'telefoonnummer: ' + ${klant.telefoonnummer} + ''" />
+<p th:text="'emailadres: ' + ${klant.emailadres} + ''" />
 
 <footer th:replace="layout :: site-footer" />
 

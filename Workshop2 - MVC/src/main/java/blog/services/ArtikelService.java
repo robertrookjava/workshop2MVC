@@ -20,8 +20,8 @@ public interface ArtikelService {
     void delete (Artikel artikel) throws Exception;
     void delete (int idArtikel) throws Exception;
     
-    Artikel read (Artikel artikel);
-    Artikel read (int idArtikel);
+    Artikel read (Artikel artikel) throws Exception;
+    Artikel read (int idArtikel) throws Exception;
     public List<Artikel> read (String naam);
     
     List<Artikel> readAll();

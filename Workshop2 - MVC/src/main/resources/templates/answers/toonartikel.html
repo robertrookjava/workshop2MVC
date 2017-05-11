@@ -9,7 +9,12 @@
 
 <h1>Artikel</h1>
 
-Toon hier het artikel
+De gegevens van het artikel 
+
+<p th:text="'idArtikel: ' + ${artikel.idArtikel}" />
+<p th:text="'naam: ' + ${artikel.naam} + ''" />
+<p th:text="'prijs: ' + ${artikel.prijs} + ''" />
+<p th:text="'vooraad: ' + ${artikel.voorraad} + ''" />
 
 <footer th:replace="layout :: site-footer" />
 

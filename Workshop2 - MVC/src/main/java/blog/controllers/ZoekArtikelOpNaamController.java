@@ -109,7 +109,7 @@ public class ZoekArtikelOpNaamController {
         
         //accounttypeservice.create(Integer.parseInt(id), type);
         //saccountservice.create(Integer.parseInt(idAccount), gebruikersnaam, wachtwoord, Integer.parseInt(accounttype_id));
-        return "answers/toonartikelen@";
+        return "answers/toonartikelen";
         
     }    
     

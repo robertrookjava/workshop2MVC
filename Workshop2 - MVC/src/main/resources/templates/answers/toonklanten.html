@@ -8,8 +8,34 @@
 <header th:replace="layout :: site-header" />
 
 <h1>Alle klanten</h1>
+<p></p>
+<p></p>
 
-Toon hier alle klanten
+Hier zijn de gevraagde klanten
+<p></p>
+<p></p>
+
+<table>
+   <th:block th:each="klant : ${klantList}">
+       <tr>
+           <th>idKlant</th>
+           <th>voornaam</th>
+           <th>achternaam</th>
+           <th>tussenvoegsel</th>
+           <th>telefoonnummer</th>
+           <th>emailadres</th>
+       </tr>
+      <tr>
+         <td th:text="${klant.idKlant}">...</td>
+         <td th:text="${klant.voornaam}">...</td>
+         <td th:text="${klant.achternaam}">...</td>
+         <td th:text="${klant.tussenvoegsel}">...</td>
+         <td th:text="${klant.telefoonnummer}">...</td>
+         <td th:text="${klant.emailadres}">...</td>
+      </tr>
+      
+   </th:block>
+</table>
 
 <footer th:replace="layout :: site-footer" />
 

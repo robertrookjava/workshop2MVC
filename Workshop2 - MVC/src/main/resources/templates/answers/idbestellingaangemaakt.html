@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="layout :: site-head">
+  <title>De bestelling is aangemaakt</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header" />
+
+<h1>De bestelling is aangemaakt</h1>
+
+<p th:text="'De bestelling met idBestelling ' + ${idBestelling}+ ' is aangemaakt'" />
+
+
+
+
+<footer th:replace="layout :: site-footer" />
+
+</body>
+
+</html>

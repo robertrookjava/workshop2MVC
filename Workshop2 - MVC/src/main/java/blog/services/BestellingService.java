@@ -20,6 +20,7 @@ public interface BestellingService {
     
     void delete (Bestelling bestelling)throws Exception;
     void delete (int idBestelling)throws Exception;
+    void delete (int idBestelling, int idAccount) throws Exception;
     
     Bestelling read (Bestelling bestelling)throws Exception;
     Bestelling read (int idBestelling)throws Exception;

@@ -119,6 +119,17 @@ public class BestellingServiceImpl implements BestellingService {
        return bestellingRepository.readByIdAccount(idAccount);
     }
 
+    @Override
+    public void delete(int idBestelling, int idAccount) throws Exception {
+        boolean exists = exists(idBestelling);
+        if (!exists) throw new idBestellingBestaatNiet();
+        Bestelling bestelling = read(idBestelling);
+        int idAccountGevonden = bestelling.getIdAccount();
+        if (idAccount!= idAccountGevonden) throw new idBestellingNietBijIngelogdeAccount();
+        delete (idBestelling);
+        
+    }
+
     
 
     

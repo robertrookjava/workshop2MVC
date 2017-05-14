@@ -105,6 +105,15 @@ public class AppWideExceptionHandler {
         return "exceptions/idArtikelBestaatNiet";
     }
     
+    @ExceptionHandler(idBestellingNietBijIngelogdeAccount.class)
+    public String ExceptionHandler16 (){
+        return "exceptions/idBestellingNietBijIngelogdeAccount";
+    }
+    
+    @ExceptionHandler(idBestellingBestaatNiet.class)
+    public String ExceptionHandler17 (){
+        return "exceptions/idBestellingBestaatNiet";
+    }
     
     
     

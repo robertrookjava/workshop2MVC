@@ -15,9 +15,11 @@ import java.util.List;
 public interface BestelArtikelService {
     void create (BestelArtikel bestelArtikel) throws Exception;
     void create (int idBestelling, int idArtikel, int aantal) throws Exception;
+    void create (int bestelling, int idartikel, int aantal, int idAccount) throws Exception;
     
     void delete (BestelArtikel bestelArtikel) throws Exception;
     void delete (int idBestelling, int idArtikel)throws Exception;
+    void delete (int idBestelling, int idArtikel, int idAccount) throws Exception;
     
     BestelArtikel read (BestelArtikel bestelArtikel) throws Exception;
     BestelArtikel read (int idBestelling, int idArtikel) throws Exception;

@@ -52,7 +52,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //}
 
 @Controller
-public class VerwijderLegeIdBestelling {
+public class IdBestellingVoegToeIdArtikelAantalController {
     
     @Autowired
     private UserService userService;
@@ -91,29 +91,24 @@ public class VerwijderLegeIdBestelling {
     
     
     
-@RequestMapping(value = "/verwijderlegeidbestelling", method = RequestMethod.GET)
-    public String verwijderlegeidbestellingGet() {
-        return "/verwijderlegeidbestelling";
+@RequestMapping(value = "/idbestellingvoegtoeidartikelaantal", method = RequestMethod.GET)
+    public String idBestellingVoegToeIdArtikelAantalGet() {
+        return "/idbestellingvoegtoeidartikelaantal";
     }
 
-    @RequestMapping(value = "/verwijderlegeidbestelling", method = RequestMethod.POST)
+    @RequestMapping(value = "/idbestellingvoegtoeidartikelaantal", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String verwijderlegeidbestellingPost(Model model, HttpServletRequest request) throws Exception {
+    public String idBestellingVoegToeIdArtikelAantalPost(Model model, HttpServletRequest request) throws Exception {
         
-        String idBestelling = request.getParameter("idBestelling");
         int idAccount = ingelogdeGebruiker.getIdAccountIngelogdeGebruiker();
+        String idBestelling = request.getParameter("idBestelling");
+        String idArtikel =  request.getParameter("idArtikel");
+        String aantal =  request.getParameter("aantal");
         
-       
+        bestelArtikelService.create(Integer.parseInt(idBestelling), Integer.parseInt(idArtikel),Integer.parseInt(aantal),idAccount);
         
-        
-        System.out.println("robert1: idBestelling = "+idBestelling );
-        
-        
-        //klantService.create(voornaam, achternaam, tussenvoegsel, telefoonnummer, emailadres);
-        bestellingService.delete(Integer.parseInt(idBestelling), idAccount);
-        
-        //accounttypeservice.create(Integer.parseInt(id), type);
-        //saccountservice.create(Integer.parseInt(idAccount), gebruikersnaam, wachtwoord, Integer.parseInt(accounttype_id));
+     
+
         return "answers/opdrachtuitgevoerd";
         
     }    

@@ -35,7 +35,7 @@ public class AppWideExceptionHandler {
     
     @ExceptionHandler(VoorraadNegatief.class)
     public String ExceptionHandler1 (){
-        return "exceptions/vooraadNegatief";
+        return "exceptions/voorraadNegatief";
     }
     
     @ExceptionHandler(ArtikelnaamLeeg.class)

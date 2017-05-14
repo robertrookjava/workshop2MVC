@@ -1,16 +1,47 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="layout :: site-head">
+  <title>Verwijder idArtikel van idBestelling</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header" />
+
+<h1>Voeg idArtikel en aantal toe aan idBestelling</h1>
+
+<form method="post">
+            <!-- Use th:field to set field 'id' here -->
+            <input type="hidden" />
+            
+            <!-- Use th:field to show *{firstName} -->
+            <p>
+            <label for="invoer1">idBestelling:</label>
+            <input type="number" name ="idBestelling" min="1" required="true"/>
+            </p>
+            
+            <p>
+            <label for="invoer2">idArtikel:</label>
+            <input type="number" name ="idArtikel" min="1" required="true"/>
+            </p>
+            
+            
+            
+            
+            
+            <!-- Use th:field to show *{lastName} -->
+            
+            
+            <!-- Use th:field to show *{lastName} -->
+           
+            
+            
+            
+            <input type="submit" />
+        </form>
+
+
+<footer th:replace="layout :: site-footer" />
+
+</body>
+
 </html>

@@ -130,6 +130,18 @@ public class BestellingServiceImpl implements BestellingService {
         
     }
 
+    @Override
+    public int getIdAccountVanIdBestelling(int idBestelling) {
+       Bestelling bestelling = read (idBestelling);
+       return bestelling.getIdAccount();
+    }
+
+    @Override
+    public boolean isIdBestellingIdAccount(int idBestelling, int idAccount) {
+        int idAccountGevonden = getIdAccountVanIdBestelling (idBestelling);
+        return (idAccount == idAccountGevonden);
+    }
+
     
 
     

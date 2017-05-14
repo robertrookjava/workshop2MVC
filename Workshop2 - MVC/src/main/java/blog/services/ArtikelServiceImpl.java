@@ -126,10 +126,15 @@ public class ArtikelServiceImpl implements ArtikelService {
 
     @Override
     public void verhoogVoorraad(int idArtikel, int verhoog) throws Exception {
+        System.out.println("Robert10 in verhoogvoorraad");
         Artikel artikelFound = artikelRepository.findOne(idArtikel);
-        if ((artikelFound.getVoorraad()+verhoog) <0) throw new VoorraadNegatief(); 
+        System.out.println("Robert11 in verhoogvoorraad");
+        if ((artikelFound.getVoorraad()+verhoog) <0) throw new VoorraadNegatief();
+        System.out.println("Robert12 in verhoogvoorraad");
         artikelFound.setVoorraad(artikelFound.getVoorraad()+verhoog);
+        System.out.println("Robert13 in verhoogvoorraad");
         update (artikelFound);
+        System.out.println("Robert14 in verhoogvoorraad");
         
     }
 

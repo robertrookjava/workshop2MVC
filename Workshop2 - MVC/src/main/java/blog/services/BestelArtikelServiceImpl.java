@@ -39,14 +39,28 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
 
     @Override
     public void create(int idBestelling, int idArtikel, int aantal) throws Exception {
+        System.out.println("Robert 1: in create van bestelArtikel");
         if (!bestellingService.exists(idBestelling)) throw new idBestellingBestaatNiet();
+        System.out.println("Robert 2: in create van bestelArtikel");
         if (!artikelService.exists(idArtikel)) throw new idArtikelBestaatNiet();
+        System.out.println("Robert 3: in create van bestelArtikel");
+        
+      
         BestelArtikel bestelArtikel = new BestelArtikel();
         bestelArtikel.setIdBestelling(idBestelling);
         bestelArtikel.setIdArtikel(idArtikel);
         bestelArtikel.setAantal(aantal);
-        bestelArtikelRepository.save(bestelArtikel);
         artikelService.verlaagVoorraad(idArtikel, aantal);
+        bestelArtikelRepository.save(bestelArtikel);
+        System.out.println("Robert 4: in create van bestelArtikel");
+        
+        System.out.println("Robert 5: in create van bestelArtikel");
+    }
+    
+    @Override
+    public void create (int idBestelling, int idArtikel, int aantal, int idAccount) throws Exception{
+        if (!bestellingService.isIdBestellingIdAccount(idBestelling, idAccount)) throw new idBestellingNietBijIngelogdeAccount();
+        create (idBestelling, idArtikel, aantal);
     }
 
     @Override
@@ -64,6 +78,13 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
         artikelService.verhoogVoorraad(idArtikel, aantal(idBestelling,idArtikel));
         bestelArtikelRepository.delete(bestelArtikelPK);
         
+    }
+    
+    @Override
+    public void delete(int idBestelling, int idArtikel, int idAccount) throws Exception {
+        if (!bestellingService.isIdBestellingIdAccount(idBestelling, idAccount)) throw new idBestellingNietBijIngelogdeAccount();
+        delete (idBestelling, idArtikel);
+   
     }
 
     @Override
@@ -121,5 +142,7 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
         BestelArtikel bestelArtikel = read(idBestelling, idArtikel);
         return bestelArtikel.getAantal();
     }
+
+    
     
 }

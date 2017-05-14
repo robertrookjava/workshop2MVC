@@ -16,15 +16,16 @@ Hier zijn de gevraagde klanten
 <p></p>
 
 <table>
-   <th:block th:each="klant : ${klantList}">
-       <tr>
+    <tr>
            <th>idKlant</th>
            <th>voornaam</th>
            <th>achternaam</th>
            <th>tussenvoegsel</th>
            <th>telefoonnummer</th>
            <th>emailadres</th>
-       </tr>
+    </tr>
+   <th:block th:each="klant : ${klantList}">
+       
       <tr>
          <td th:text="${klant.idKlant}">...</td>
          <td th:text="${klant.voornaam}">...</td>

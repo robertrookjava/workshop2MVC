@@ -11,12 +11,26 @@
 
 De gegevens van het klant 
 
-<p th:text="'idKlant: ' + ${klant.idKlant}" />
-<p th:text="'voornaam: ' + ${klant.voornaam} + ''" />
-<p th:text="'achternaam: ' + ${klant.achternaam} + ''" />
-<p th:text="'tussenvoegsel: ' + ${klant.tussenvoegsel} + ''" />
-<p th:text="'telefoonnummer: ' + ${klant.telefoonnummer} + ''" />
-<p th:text="'emailadres: ' + ${klant.emailadres} + ''" />
+<table>
+    <tr>
+           <th>idKlant</th>
+           <th>voornaam</th>
+           <th>achternaam</th>
+           <th>tussenvoegsel</th>
+           <th>telefoonnummer</th>
+           <th>emailadres</th>
+    </tr>
+   
+       
+      <tr>
+         <td th:text="${klant.idKlant}">...</td>
+         <td th:text="${klant.voornaam}">...</td>
+         <td th:text="${klant.achternaam}">...</td>
+         <td th:text="${klant.tussenvoegsel}">...</td>
+         <td th:text="${klant.telefoonnummer}">...</td>
+         <td th:text="${klant.emailadres}">...</td>
+      </tr>
+</table>
 
 <footer th:replace="layout :: site-footer" />
 

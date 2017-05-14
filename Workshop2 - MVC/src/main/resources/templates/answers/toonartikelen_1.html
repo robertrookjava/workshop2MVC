@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head th:replace="layout :: site-head">
-  <title>Artikel</title>
+  <title>Alle artikelen</title>
 </head>
 
 <body>
 
 <header th:replace="layout :: site-header" />
 
-<h1>Artikel</h1>
+<h1>Alle artikelen</h1>
 
-De gegevens van het artikel 
+Hier een lijst van de gevraagde artikelen
 <p></p>
-<p></p>
+
+
 
 
 <table>
-     <tr>
+   <th:block th:each="artikel : ${artikelList}">
+       <tr>
            <th>idArtikel</th>
            <th>naam</th>
            <th>prijs</th>
            <th>voorraad</th>
        </tr>
-  
-       
       <tr>
          <td th:text="${artikel.idArtikel}">...</td>
          <td th:text="${artikel.naam}">...</td>
@@ -30,9 +30,8 @@ De gegevens van het artikel
          <td th:text="${artikel.voorraad}">...</td>
       </tr>
       
-   
+   </th:block>
 </table>
-
 <footer th:replace="layout :: site-footer" />
 
 </body>

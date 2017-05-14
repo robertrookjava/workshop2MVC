@@ -16,13 +16,14 @@ Hier een lijst van de gevraagde artikelen
 
 
 <table>
-   <th:block th:each="artikel : ${artikelList}">
-       <tr>
+     <tr>
            <th>idArtikel</th>
            <th>naam</th>
            <th>prijs</th>
            <th>voorraad</th>
        </tr>
+   <th:block th:each="artikel : ${artikelList}">
+       
       <tr>
          <td th:text="${artikel.idArtikel}">...</td>
          <td th:text="${artikel.naam}">...</td>

@@ -23,15 +23,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public int getIdAccount (String username, String password){
         // tijdelijk even 1 totdat mijn @Autowired String security probleem is opgelost
-        return 1;
-//        if (!authenticate(username,password)) return 0;
-//        List<Account> accountList = accountService.read(username, password);
-//        Account account = accountList.iterator().next();
-//        return account.getIdAccount();
+       // return 1;
+        if (!authenticate(username,password)) return 0;
+        List<Account> accountList = accountService.read(username, password);
+        Account account = accountList.iterator().next();
+        return account.getIdAccount();
     }
 
     @Override
-    public Account account(String username, String password) {
+    public Account getAccount(String username, String password) {
         List<Account> accountList = accountService.read(username, password);
         Account account = accountList.iterator().next();
         return account;
@@ -44,5 +44,20 @@ public class UserServiceImpl implements UserService {
         System.out.println("Robert 9: zijn we er nog?");
         Account account = accountList.iterator().next();
         return account.getWachtwoord();
+    }
+
+    @Override
+    public int getIdAccount(String username) {
+        Account account = getAccount(username);
+        int idAccount = account.getIdAccount();
+        return idAccount;
+    }
+
+    @Override
+    public Account getAccount(String username) {
+        List<Account> accountList = accountService.read(username);
+        Account account = accountList.iterator().next();
+        return account;
+        
     }
 }

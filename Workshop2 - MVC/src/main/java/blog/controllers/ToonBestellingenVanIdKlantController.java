@@ -19,6 +19,7 @@ import blog.forms.LoginForm;
 import blog.models.Account;
 import blog.models.Accounttype;
 import blog.models.*;
+import blog.security.IngelogdeGebruiker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,6 +60,9 @@ public class ToonBestellingenVanIdKlantController {
     @Autowired
     private AccountService accountservice;
     
+    @Autowired
+    private IngelogdeGebruiker ingelogdeGebruiker;
+    
     
     @Autowired
     private AccounttypeService accounttypeservice;
@@ -88,25 +92,44 @@ public class ToonBestellingenVanIdKlantController {
     
     
 @RequestMapping(value = "/toonbestellingenvanidklant", method = RequestMethod.GET)
-    public String zoekKlantOpIdGet() {
+    public String toonBestellingenVanIdKlantGet() {
         return "toonbestellingenvanidklant";
     }
 
     @RequestMapping(value = "/toonbestellingenvanidklant", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String zoekKlantOpIdPost(Model model, HttpServletRequest request) throws Exception {
+    public String toonBestellingenVanIdKlantPost(Model model, HttpServletRequest request) throws Exception {
         
         String idKlant = request.getParameter("idKlant");
+        int idAccount = ingelogdeGebruiker.getIdAccountIngelogdeGebruiker();
+        List<String> antwoord;
 
       
         //klantService.create(voornaam, achternaam, tussenvoegsel, telefoonnummer, emailadres);
         Klant klant= klantService.read(Integer.parseInt(idKlant));
-        model.addAttribute("klant", klant);
+        System.out.println("idKlant: " + klant.getIdKlant());
+        System.out.println("voornaam: " +klant.getVoornaam());
+        System.out.println("achternaam: "+klant.getAchternaam());
+        System.out.println("tussenvoegsel: "+klant.getTussenvoegsel());
+        System.out.println("telefoonnummer: "+klant.getTelefoonnummer());
+        System.out.println("emailadres: "+ klant.getEmailadres());
         
         // nodig zijn de volgende methoden:
         //
-        //List<Bestelling> readByIdKlantIdAccount(int idKlant, int idAccount) throws Exception;
-        // boolean existsByIdKlantIdAccount (int idKlant, int idAccount) throws Exception;
+        List<Bestelling> bestellingList = bestellingService.readByIdKlantIdAccount(Integer.parseInt(idKlant),idAccount);
+        for (Bestelling bestelling:bestellingList){
+            // gegevens...... bestelling.getIdBestelling();
+            
+            List<BestelArtikel> bestelArtikelList = bestelArtikelService.readByIdBestelling(bestelling.getIdBestelling());
+            for (BestelArtikel bestelArtikel:bestelArtikelList){
+                // gegevens........bestelArtikel.getidArtikel
+                // gegevens .......naam van dit artikel
+                
+                // bestelArtikel.getAantal();
+                
+            }
+        }
+        // 
         // bestellingService.existsByIdKlantIdAccount(idKlant, idAccoun);
         // bestelArtikelService.readByIdBestelling(idBestelling); list<BestelArtikel>
         //  if (!bestellingService.isIdBestellingIdAccount(idBestelling, idAccount))

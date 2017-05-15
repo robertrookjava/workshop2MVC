@@ -13,6 +13,7 @@ import blog.Exceptions.KlantVoornaamLeeg;
 import blog.Exceptions.EmailadresOngeldig;
 import blog.Exceptions.NietGeheel;
 import blog.Exceptions.NietNumeriek;
+import blog.Exceptions.idKlantBestaatNiet;
 import blog.format.CheckFormat;
 import blog.forms.Form1;
 import blog.forms.LoginForm;
@@ -103,16 +104,67 @@ public class WijzigKlantController {
         String telefoonnummer =request.getParameter("telefoonnummer");
         String emailadres = request.getParameter("emailadres");
         
+        
+        boolean exists = klantService.exists(Integer.parseInt(idKlant));
+        if (!exists) throw new idKlantBestaatNiet();
+        
+        Klant klantGevonden = klantService.read(Integer.parseInt(idKlant));
+        String voornaamGevonden = klantGevonden.getVoornaam();
+        String achternaamGevonden = klantGevonden.getAchternaam();
+        String tussenvoegselGevonden = klantGevonden.getTussenvoegsel();
+        String telefoonnummerGevonden = klantGevonden.getTelefoonnummer();
+        String emailadresGevonden = klantGevonden.getEmailadres();
+        
+        String voornaamNieuw;
+        String achternaamNieuw;
+        String tussenvoegselNieuw;
+        String telefoonnummerNieuw;
+        String emailadresNieuw;
+        
+        if (voornaam.isEmpty()){
+            voornaamNieuw = voornaamGevonden;
+        }
+        else {
+            voornaamNieuw = voornaam;
+        }
+        
+        if (achternaam.isEmpty()){
+            achternaamNieuw = achternaamGevonden;
+        }
+        else {
+            achternaamNieuw = achternaam;
+        }
+        
+   
+        if (tussenvoegsel.isEmpty()){
+            tussenvoegselNieuw = tussenvoegselGevonden;
+        }
+        else {
+            tussenvoegselNieuw = tussenvoegsel;
+        }
+        
+         if (telefoonnummer.isEmpty()){
+            telefoonnummerNieuw = telefoonnummerGevonden;
+        }
+        else {
+            telefoonnummerNieuw = telefoonnummer;
+        }
+         
+        if (emailadres.isEmpty()){
+            emailadresNieuw = emailadresGevonden;
+        }
+        else {
+            emailadresNieuw = emailadres;
+        }
+        
+        
+        
+        
+        
        
         
-        System.out.println("robert1: idKlant = "+idKlant );
-        System.out.println("robert2: voornaam = "+voornaam );
-        System.out.println("robert3: achternaam = "+achternaam );
-        System.out.println("robert4: tussenvoegsel = "+tussenvoegsel);
-        System.out.println("robert5: telefoonnummer = "+telefoonnummer );
-        System.out.println("robert6: emmailadres = "+ emailadres );
         
-        klantService.update(Integer.parseInt(idKlant), voornaam, achternaam, tussenvoegsel, telefoonnummer, emailadres);
+        klantService.update(Integer.parseInt(idKlant), voornaamNieuw, achternaamNieuw, tussenvoegselNieuw, telefoonnummerNieuw, emailadresNieuw);
         
         //accounttypeservice.create(Integer.parseInt(id), type);
         //saccountservice.create(Integer.parseInt(idAccount), gebruikersnaam, wachtwoord, Integer.parseInt(accounttype_id));

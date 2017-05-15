@@ -13,6 +13,7 @@ import blog.Exceptions.KlantVoornaamLeeg;
 import blog.Exceptions.EmailadresOngeldig;
 import blog.Exceptions.NietGeheel;
 import blog.Exceptions.NietNumeriek;
+import blog.Exceptions.idArtikelBestaatNiet;
 import blog.format.CheckFormat;
 import blog.forms.Form1;
 import blog.forms.LoginForm;
@@ -102,14 +103,53 @@ public class WijzigArtikelController {
         String prijs = request.getParameter("prijs");
         String voorraad = request.getParameter("voorraad");
         
+        // alleen niet gele velden wijzigen
         
+        boolean exists = artikelService.exists(Integer.parseInt(idArtikel));
+        if (!exists) throw new idArtikelBestaatNiet();
+        
+        Artikel artikelGevonden = artikelService.read(Integer.parseInt(idArtikel));
+        String naamGevonden = artikelGevonden.getNaam();
+        BigDecimal prijsGevonden = artikelGevonden.getPrijs();
+        int voorraadGevonden = artikelGevonden.getVoorraad();
+        
+        String naamNieuw;
+        BigDecimal prijsNieuw;
+        int voorraadNieuw;
+        
+        if (naam.isEmpty()){
+            naamNieuw = naamGevonden;
+        }
+        else {
+            naamNieuw = naam;
+        }
+        
+        if (prijs.isEmpty()){
+            prijsNieuw = prijsGevonden;
+            
+        }
+        else{
+            prijsNieuw = new BigDecimal(prijs);
+        }
+        
+        if (voorraad.isEmpty()){
+            voorraadNieuw = voorraadGevonden;
+        }
+        else {
+            voorraadNieuw = Integer.parseInt(voorraad);
+            
+        }
+           
+                
+        
+      
        
         System.out.println("robert1: idArtikel = "+idArtikel );
-        System.out.println("robert2: naam = "+naam );
-        System.out.println("robert3: prijs = "+prijs );
-        System.out.println("robert4: voorraad = "+voorraad );
+        System.out.println("robert2: naamNieuw = "+naamNieuw );
+        System.out.println("robert3: prijsNieuw = "+prijsNieuw );
+        System.out.println("robert4: voorraadNieuw = "+voorraadNieuw );
         
-        artikelService.update(Integer.parseInt(idArtikel),naam, new BigDecimal(prijs),Integer.parseInt(voorraad));
+        artikelService.update(Integer.parseInt(idArtikel),naamNieuw, prijsNieuw,voorraadNieuw);
         
         
         //klantService.update(Integer.parseInt(idKlant), voornaam, achternaam, tussenvoegsel, telefoonnummer, emailadres);

@@ -96,7 +96,7 @@ public class VerwijderIdArtikelIdBestelling {
         return "/verwijderidartikelidbestelling";
     }
 
-    @RequestMapping(value = "/idbestellingvoegtoeidartikelaantal", method = RequestMethod.POST)
+    @RequestMapping(value = "/verwijderidartikelidbestelling", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
     public String verwijderIdArtikelIdBestellingPost(Model model, HttpServletRequest request) throws Exception {
         

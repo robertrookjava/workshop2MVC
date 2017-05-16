@@ -25,6 +25,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import blog.services.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
@@ -102,7 +103,7 @@ public class ToonBestellingenVanIdKlantController {
         
         String idKlant = request.getParameter("idKlant");
         int idAccount = ingelogdeGebruiker.getIdAccountIngelogdeGebruiker();
-        List<String> antwoord;
+        List<String> antwoord = new ArrayList<String>();
 
       
         //klantService.create(voornaam, achternaam, tussenvoegsel, telefoonnummer, emailadres);
@@ -113,22 +114,54 @@ public class ToonBestellingenVanIdKlantController {
         System.out.println("tussenvoegsel: "+klant.getTussenvoegsel());
         System.out.println("telefoonnummer: "+klant.getTelefoonnummer());
         System.out.println("emailadres: "+ klant.getEmailadres());
+        System.out.println("******************************");
+        System.out.println("");
+        
+        antwoord.add("idKlant: " + klant.getIdKlant());
+        antwoord.add("voornaam: " +klant.getVoornaam());
+        antwoord.add("achternaam: "+klant.getAchternaam());
+        antwoord.add("tussenvoegsel: "+klant.getTussenvoegsel());
+        antwoord.add("telefoonnummer: "+klant.getTelefoonnummer());
+        antwoord.add("emailadres: "+ klant.getEmailadres());
+        antwoord.add("******************************");
+        antwoord.add("");
+        
         
         // nodig zijn de volgende methoden:
         //
         List<Bestelling> bestellingList = bestellingService.readByIdKlantIdAccount(Integer.parseInt(idKlant),idAccount);
         for (Bestelling bestelling:bestellingList){
             // gegevens...... bestelling.getIdBestelling();
+            System.out.println ("idBestelling :"+ bestelling.getIdBestelling());
+            System.out.println("");
+            antwoord.add("idBestelling :"+ bestelling.getIdBestelling());
+            antwoord.add("");
             
             List<BestelArtikel> bestelArtikelList = bestelArtikelService.readByIdBestelling(bestelling.getIdBestelling());
             for (BestelArtikel bestelArtikel:bestelArtikelList){
                 // gegevens........bestelArtikel.getidArtikel
                 // gegevens .......naam van dit artikel
                 
-                // bestelArtikel.getAantal();
+                // gegevens .............bestelArtikel.getAantal();
+                // ******************************************
+                
+                Artikel artikel = artikelService.read(bestelArtikel.getIdArtikel());
+                System.out.println("idArtikel: "+ artikel.getIdArtikel());
+                System.out.println("naam: "+ artikel.getNaam());
+                System.out.println("prijs: "+ artikel.getPrijs());
+                System.out.println("voorraad " + artikel.getVoorraad());
+                System.out.println("************************");
+                
+                antwoord.add("idArtikel: "+ artikel.getIdArtikel());
+                antwoord.add("naam: "+ artikel.getNaam());
+                antwoord.add("prijs: "+ artikel.getPrijs());
+                antwoord.add("voorraad " + artikel.getVoorraad());
+                antwoord.add("************************");
                 
             }
         }
+        
+        model.addAttribute("antwoord", antwoord);
         // 
         // bestellingService.existsByIdKlantIdAccount(idKlant, idAccoun);
         // bestelArtikelService.readByIdBestelling(idBestelling); list<BestelArtikel>

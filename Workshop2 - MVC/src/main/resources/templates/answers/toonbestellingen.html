@@ -9,7 +9,19 @@
 
 <h1>Bestellingen van klant</h1>
 
-Hier worden straks weergegeven alle bestellingen van de klant.
+
+<table>
+     
+   <th:block th:each="p : ${antwoord}">
+       
+      <tr>
+         <td th:text="${p}">...</td>
+         
+      </tr>
+      
+   </th:block>
+</table>
+
 
 <footer th:replace="layout :: site-footer" />
 

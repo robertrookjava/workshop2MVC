@@ -14,14 +14,14 @@ import java.util.List;
  */
 public interface ArtikelService {
     
-    void create(Artikel artikel) throws Exception;
-    void create (String naam, BigDecimal prijs, int voorraad) throws Exception;
+    void create(Artikel artikel);
+    void create (String naam, BigDecimal prijs, int voorraad);
     
-    void delete (Artikel artikel) throws Exception;
-    void delete (int idArtikel) throws Exception;
+    void delete (Artikel artikel);
+    void delete (int idArtikel);
     
-    Artikel read (Artikel artikel) throws Exception;
-    Artikel read (int idArtikel) throws Exception;
+    Artikel read (Artikel artikel);
+    Artikel read (int idArtikel);
     public List<Artikel> read (String naam);
     
     List<Artikel> readAll();
@@ -30,11 +30,11 @@ public interface ArtikelService {
     boolean exists (int idArtikel);
     boolean exists (String naam);
     
-    void update (Artikel artikel) throws Exception;
-    void update (int idArtikel, String naam, BigDecimal prijs, int Voorraad) throws Exception;
+    void update (Artikel artikel);
+    void update (int idArtikel, String naam, BigDecimal prijs, int Voorraad);
     
-    void verhoogVoorraad (int idArtikel, int verhoog) throws Exception;
-    void verlaagVoorraad (int idArtikel, int verlaag) throws Exception;
+    void verhoogVoorraad (int idArtikel, int verhoog);
+    void verlaagVoorraad (int idArtikel, int verlaag);
     
     
     

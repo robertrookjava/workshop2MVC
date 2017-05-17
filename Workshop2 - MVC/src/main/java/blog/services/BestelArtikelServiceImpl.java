@@ -33,12 +33,12 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
     
 
     @Override
-    public void create(BestelArtikel bestelArtikel) throws Exception {
+    public void create(BestelArtikel bestelArtikel){
         create (bestelArtikel.getIdBestelling(),bestelArtikel.getIdArtikel(),bestelArtikel.getAantal());
     }
 
     @Override
-    public void create(int idBestelling, int idArtikel, int aantal) throws Exception {
+    public void create(int idBestelling, int idArtikel, int aantal){
         System.out.println("Robert 1: in create van bestelArtikel");
         if (!bestellingService.exists(idBestelling)) throw new idBestellingBestaatNiet();
         System.out.println("Robert 2: in create van bestelArtikel");
@@ -58,18 +58,18 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
     }
     
     @Override
-    public void create (int idBestelling, int idArtikel, int aantal, int idAccount) throws Exception{
+    public void create (int idBestelling, int idArtikel, int aantal, int idAccount){
         if (!bestellingService.isIdBestellingIdAccount(idBestelling, idAccount)) throw new idBestellingNietBijIngelogdeAccount();
         create (idBestelling, idArtikel, aantal);
     }
 
     @Override
-    public void delete(BestelArtikel bestelArtikel) throws Exception{
+    public void delete(BestelArtikel bestelArtikel){
         delete (bestelArtikel.getIdBestelling(), bestelArtikel.getIdArtikel());
     }
 
     @Override
-    public void delete(int idBestelling, int idArtikel) throws Exception{
+    public void delete(int idBestelling, int idArtikel){
         if (!bestellingService.exists(idBestelling)) throw new idBestellingBestaatNiet();
         if (!artikelService.exists(idArtikel)) throw new idArtikelBestaatNiet();
         BestelArtikelPK bestelArtikelPK = new BestelArtikelPK();
@@ -81,7 +81,7 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
     }
     
     @Override
-    public void delete(int idBestelling, int idArtikel, int idAccount) throws Exception {
+    public void delete(int idBestelling, int idArtikel, int idAccount){
         if (!bestellingService.isIdBestellingIdAccount(idBestelling, idAccount)) throw new idBestellingNietBijIngelogdeAccount();
         delete (idBestelling, idArtikel);
    
@@ -138,7 +138,7 @@ public class BestelArtikelServiceImpl implements BestelArtikelService{
     }
 
     @Override
-    public int aantal(int idBestelling, int idArtikel) throws Exception {
+    public int aantal(int idBestelling, int idArtikel){
         BestelArtikel bestelArtikel = read(idBestelling, idArtikel);
         return bestelArtikel.getAantal();
     }

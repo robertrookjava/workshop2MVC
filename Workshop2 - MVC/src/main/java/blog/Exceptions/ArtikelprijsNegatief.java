@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class ArtikelprijsNegatief extends Exception{
+public class ArtikelprijsNegatief extends RuntimeException{
     
 }

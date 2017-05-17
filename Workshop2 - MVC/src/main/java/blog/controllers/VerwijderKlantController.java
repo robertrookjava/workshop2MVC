@@ -94,7 +94,7 @@ public class VerwijderKlantController {
 
     @RequestMapping(value = "/verwijderklant", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String verwijderKlantPost(Model model, HttpServletRequest request) throws Exception {
+    public String verwijderKlantPost(Model model, HttpServletRequest request){
         
         String idKlant = request.getParameter("idKlant");
         

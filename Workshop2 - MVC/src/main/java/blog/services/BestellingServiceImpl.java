@@ -35,7 +35,7 @@ public class BestellingServiceImpl implements BestellingService {
     
 
     @Override
-    public int create(Bestelling bestelling) throws Exception {
+    public int create(Bestelling bestelling){
         if (!klantService.exists(bestelling.getIdKlant())) throw new idKlantBestaatNiet();
         if (!accountService.exists(bestelling.getIdAccount())) throw new idAccountBestaatNiet();
         bestelling.setDatum_Bestelling(new Date());
@@ -44,7 +44,7 @@ public class BestellingServiceImpl implements BestellingService {
     }
 
     @Override
-    public int create(int idKlant, int idAccount) throws Exception {
+    public int create(int idKlant, int idAccount){
         Bestelling bestelling = new Bestelling();
         bestelling.setIdKlant(idKlant);
         bestelling.setIdAccount(idAccount);
@@ -80,7 +80,7 @@ public class BestellingServiceImpl implements BestellingService {
 
     @Override
     public boolean exists(Bestelling bestelling) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return bestellingRepository.exists(bestelling.getIdBestelling()); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -89,26 +89,26 @@ public class BestellingServiceImpl implements BestellingService {
     }
 
     @Override
-    public List<Bestelling> readByIdKlant(int idKlant) throws Exception {
+    public List<Bestelling> readByIdKlant(int idKlant){
         if (!klantService.exists(idKlant)) throw new idKlantBestaatNiet();
         return bestellingRepository.readByIdKlant(idKlant);
     }
 
     @Override
-    public boolean existsByIdKlant(int idKlant) throws Exception {
+    public boolean existsByIdKlant(int idKlant){
         List<Bestelling> bestellingList = readByIdKlant(idKlant);
         return(!bestellingList.isEmpty());
     }
 
     @Override
-    public List<Bestelling> readByIdKlantIdAccount(int idKlant, int idAccount) throws Exception {
+    public List<Bestelling> readByIdKlantIdAccount(int idKlant, int idAccount){
         if (!klantService.exists(idKlant)) throw new idKlantBestaatNiet();
         if (!accountService.exists(idAccount)) throw new idAccountBestaatNiet();
         return bestellingRepository.readByIdKlantAndIdAccount(idKlant, idAccount);
     }
 
     @Override
-    public boolean existsByIdKlantIdAccount(int idKlant, int idAccount) throws Exception {
+    public boolean existsByIdKlantIdAccount(int idKlant, int idAccount){
         List<Bestelling> bestellingList = readByIdKlantIdAccount(idKlant,idAccount);
         boolean isEmpty = bestellingList.isEmpty();
         return !isEmpty;
@@ -120,7 +120,7 @@ public class BestellingServiceImpl implements BestellingService {
     }
 
     @Override
-    public void delete(int idBestelling, int idAccount) throws Exception {
+    public void delete(int idBestelling, int idAccount){
         boolean exists = exists(idBestelling);
         if (!exists) throw new idBestellingBestaatNiet();
         Bestelling bestelling = read(idBestelling);

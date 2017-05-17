@@ -94,7 +94,7 @@ public class AanmakenAccountController {
 
     @RequestMapping(value = "/aanmakenaccount", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String aanmakenAccountPost(Model model, HttpServletRequest request) throws Exception {
+    public String aanmakenAccountPost(Model model, HttpServletRequest request){
         
         String idAccount = request.getParameter("idAccount");
         String gebruikersnaam = request.getParameter("gebruikersnaam");

@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class NietGeheel extends Exception{
+public class NietGeheel extends RuntimeException{
     
 }

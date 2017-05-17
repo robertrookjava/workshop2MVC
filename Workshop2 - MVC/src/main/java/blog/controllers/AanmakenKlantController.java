@@ -94,7 +94,7 @@ public class AanmakenKlantController {
 
     @RequestMapping(value = "/aanmakenklant", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String aanmakenKlantPost(Model model, HttpServletRequest request) throws Exception {
+    public String aanmakenKlantPost(Model model, HttpServletRequest request){
         
         String voornaam = request.getParameter("voornaam");
         String achternaam = request.getParameter("achternaam");

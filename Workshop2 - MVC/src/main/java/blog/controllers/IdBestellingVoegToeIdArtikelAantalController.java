@@ -98,7 +98,7 @@ public class IdBestellingVoegToeIdArtikelAantalController {
 
     @RequestMapping(value = "/idbestellingvoegtoeidartikelaantal", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String idBestellingVoegToeIdArtikelAantalPost(Model model, HttpServletRequest request) throws Exception {
+    public String idBestellingVoegToeIdArtikelAantalPost(Model model, HttpServletRequest request){
         
         int idAccount = ingelogdeGebruiker.getIdAccountIngelogdeGebruiker();
         String idBestelling = request.getParameter("idBestelling");

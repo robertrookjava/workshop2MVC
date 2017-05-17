@@ -94,7 +94,7 @@ public class ZoekKlantOpAchternaamController {
 
     @RequestMapping(value = "/zoekklantopachternaam", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String zoekKlantopAchternaamPost(Model model, HttpServletRequest request) throws Exception {
+    public String zoekKlantopAchternaamPost(Model model, HttpServletRequest request){
         
         String achternaam = request.getParameter("achternaam");
 

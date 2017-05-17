@@ -13,21 +13,21 @@ import java.util.List;
  * @author robertrook
  */
 public interface BestelArtikelService {
-    void create (BestelArtikel bestelArtikel) throws Exception;
-    void create (int idBestelling, int idArtikel, int aantal) throws Exception;
-    void create (int bestelling, int idartikel, int aantal, int idAccount) throws Exception;
+    void create (BestelArtikel bestelArtikel);
+    void create (int idBestelling, int idArtikel, int aantal);
+    void create (int bestelling, int idartikel, int aantal, int idAccount);
     
-    void delete (BestelArtikel bestelArtikel) throws Exception;
-    void delete (int idBestelling, int idArtikel)throws Exception;
-    void delete (int idBestelling, int idArtikel, int idAccount) throws Exception;
+    void delete (BestelArtikel bestelArtikel);
+    void delete (int idBestelling, int idArtikel);
+    void delete (int idBestelling, int idArtikel, int idAccount);
     
-    BestelArtikel read (BestelArtikel bestelArtikel) throws Exception;
-    BestelArtikel read (int idBestelling, int idArtikel) throws Exception;
+    BestelArtikel read (BestelArtikel bestelArtikel);
+    BestelArtikel read (int idBestelling, int idArtikel);
     
-    List<BestelArtikel> readByIdBestelling (int idBestelling) throws Exception;
-    List<BestelArtikel> readByIdArtikel (int idArtikel) throws Exception;
+    List<BestelArtikel> readByIdBestelling (int idBestelling);
+    List<BestelArtikel> readByIdArtikel (int idArtikel);
     
-    int aantal (int idBestelling, int idArtikel) throws Exception;
+    int aantal (int idBestelling, int idArtikel);
     
     
     

@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class ArtikelInBestellingen extends Exception {
+public class ArtikelInBestellingen extends RuntimeException {
     
 }

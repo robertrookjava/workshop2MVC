@@ -99,7 +99,7 @@ public class ToonBestellingenVanIdKlantController {
 
     @RequestMapping(value = "/toonbestellingenvanidklant", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String toonBestellingenVanIdKlantPost(Model model, HttpServletRequest request) throws Exception {
+    public String toonBestellingenVanIdKlantPost(Model model, HttpServletRequest request){
         
         String idKlant = request.getParameter("idKlant");
         int idAccount = ingelogdeGebruiker.getIdAccountIngelogdeGebruiker();

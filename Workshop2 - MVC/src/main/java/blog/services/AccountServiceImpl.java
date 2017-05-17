@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService{
     private AccounttypeRepository accounttypeRepository;
 
     @Override
-    public void create(Account account) throws Exception{
+    public void create(Account account){
         if (!accounttypeRepository.exists(account.getAccountype_id())) throw new idAccounttypeBestaatNiet();
         account.setDatum_Aanmaak(new Date());
         this.accountRepository.save(account);
@@ -34,7 +34,7 @@ public class AccountServiceImpl implements AccountService{
     }
     
     @Override
-    public void create(int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id) throws Exception {
+    public void create(int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id) {
        Account account = new Account();
        account.setIdAccount(idAccount);
        account.setGebruikersnaam(gebruikersnaam);

@@ -94,7 +94,7 @@ public class ZoekArtikelOpIdController {
 
     @RequestMapping(value = "/zoekartikelopid", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String zoekArtikelOpIdPost(Model model, HttpServletRequest request) throws Exception {
+    public String zoekArtikelOpIdPost(Model model, HttpServletRequest request){
         
         String idArtikel = request.getParameter("idArtikel");
 

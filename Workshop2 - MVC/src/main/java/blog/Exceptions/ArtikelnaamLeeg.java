@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class ArtikelnaamLeeg extends Exception{
+public class ArtikelnaamLeeg extends RuntimeException{
     
 }

@@ -30,7 +30,7 @@ public class KlantServiceImpl implements KlantService {
     private BestellingService bestellingService;
 
     @Override
-    public void create(Klant klant) throws Exception {
+    public void create(Klant klant){
         if (klant.getVoornaam().isEmpty()) throw new KlantVoornaamLeeg();
         if (klant.getAchternaam().isEmpty()) throw new KlantAchternaamLeeg();
         if (!checkFormat.isEmailAdresOfLeeg((klant.getEmailadres()))) throw new EmailadresOngeldig();
@@ -38,7 +38,7 @@ public class KlantServiceImpl implements KlantService {
     }
 
     @Override
-    public void create(String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception {
+    public void create(String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres){
         Klant klant = new Klant();
         klant.setVoornaam(voornaam);
         klant.setAchternaam(achternaam);
@@ -50,24 +50,24 @@ public class KlantServiceImpl implements KlantService {
     }
 
     @Override
-    public void delete(Klant klant) throws Exception {
+    public void delete(Klant klant){
        delete (klant.getIdKlant());
     }
 
     @Override
-    public void delete(int idKlant) throws Exception {
+    public void delete(int idKlant){
         if (!exists(idKlant)) throw new idKlantBestaatNiet();
         if (bestellingService.existsByIdKlant(idKlant)) throw new KlantHeeftBestellingen();
         klantRepository.delete(idKlant);
     }
 
     @Override
-    public Klant read(Klant klant) throws Exception{
+    public Klant read(Klant klant){
          return read (klant.getIdKlant());
     }
 
     @Override
-    public Klant read(int idKlant) throws Exception {
+    public Klant read(int idKlant){
         if (!exists(idKlant)) throw new idKlantBestaatNiet();
         return klantRepository.findOne(idKlant);
     }
@@ -100,7 +100,7 @@ public class KlantServiceImpl implements KlantService {
     }
 
     @Override
-    public void update(Klant klant) throws Exception {
+    public void update(Klant klant){
        if (!exists(klant.getIdKlant())) throw new idKlantBestaatNiet();
        if (klant.getVoornaam().isEmpty()) throw new KlantVoornaamLeeg();
        if (klant.getAchternaam().isEmpty()) throw new KlantAchternaamLeeg();
@@ -116,7 +116,7 @@ public class KlantServiceImpl implements KlantService {
     }
 
     @Override
-    public void update(int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres) throws Exception {
+    public void update(int idKlant, String voornaam, String achternaam, String tussenvoegsel, String telefoonnummer, String emailadres){
         Klant klant = new Klant();
         klant.setIdKlant(idKlant);
         klant.setVoornaam(voornaam);

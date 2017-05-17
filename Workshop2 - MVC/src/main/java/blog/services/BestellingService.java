@@ -13,17 +13,17 @@ import java.util.List;
  * @author robertrook
  */
 public interface BestellingService {
-    int create (Bestelling bestelling) throws Exception;
-    int create (int idKlant, int idAccount) throws Exception;
+    int create (Bestelling bestelling);
+    int create (int idKlant, int idAccount);
     
     // uitzoeken hoe return generated key bij JPA repositories
     
-    void delete (Bestelling bestelling)throws Exception;
-    void delete (int idBestelling)throws Exception;
-    void delete (int idBestelling, int idAccount) throws Exception;
+    void delete (Bestelling bestelling);
+    void delete (int idBestelling);
+    void delete (int idBestelling, int idAccount);
     
-    Bestelling read (Bestelling bestelling)throws Exception;
-    Bestelling read (int idBestelling)throws Exception;
+    Bestelling read (Bestelling bestelling);
+    Bestelling read (int idBestelling);
     
     List<Bestelling> readAll();
     
@@ -32,11 +32,11 @@ public interface BestellingService {
     boolean exists (Bestelling bestelling);
     boolean exists (int idBestelling);
     
-    List<Bestelling> readByIdKlant (int idKlant) throws Exception;
-    boolean existsByIdKlant (int Klant) throws Exception;
+    List<Bestelling> readByIdKlant (int idKlant);
+    boolean existsByIdKlant (int Klant);
     
-    List<Bestelling> readByIdKlantIdAccount(int idKlant, int idAccount) throws Exception;
-    boolean existsByIdKlantIdAccount (int idKlant, int idAccount) throws Exception;
+    List<Bestelling> readByIdKlantIdAccount(int idKlant, int idAccount);
+    boolean existsByIdKlantIdAccount (int idKlant, int idAccount);
     
     int getIdAccountVanIdBestelling (int idBestellint);
     boolean isIdBestellingIdAccount (int idBestelling, int idAccount);

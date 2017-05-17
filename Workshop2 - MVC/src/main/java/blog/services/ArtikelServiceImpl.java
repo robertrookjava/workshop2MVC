@@ -35,7 +35,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     
 
     @Override
-    public void create(Artikel artikel) throws Exception {
+    public void create(Artikel artikel){
        if (artikel.getVoorraad()<0) throw new VoorraadNegatief(); 
        if (artikel.getNaam().isEmpty()) throw new ArtikelnaamLeeg();
        if (artikel.getPrijs().signum()== - 1) throw new ArtikelprijsNegatief();
@@ -43,7 +43,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void create(String naam, BigDecimal prijs, int voorraad) throws Exception {
+    public void create(String naam, BigDecimal prijs, int voorraad){
         Artikel artikel = new Artikel();
         artikel.setNaam(naam);
         artikel.setPrijs(prijs);
@@ -52,24 +52,24 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void delete(Artikel artikel) throws Exception {
+    public void delete(Artikel artikel){
         delete (artikel.getIdArtikel());
     }
 
     @Override
-    public void delete(int idArtikel) throws Exception {
+    public void delete(int idArtikel){
         if (!exists(idArtikel)) throw new idArtikelBestaatNiet();
         if (bestelArtikelService.existsByIdArtikel(idArtikel)) throw new ArtikelInBestellingen();
         artikelRepository.delete(idArtikel);
     }
 
     @Override
-    public Artikel read(Artikel artikel) throws Exception {
+    public Artikel read(Artikel artikel){
         return artikelRepository.findOne(artikel.getIdArtikel());
     }
 
     @Override
-    public Artikel read(int idArtikel) throws Exception {
+    public Artikel read(int idArtikel){
        if (!exists(idArtikel)) throw new idArtikelBestaatNiet(); 
        return artikelRepository.findOne(idArtikel);
     }
@@ -102,7 +102,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void update(Artikel artikel) throws Exception{
+    public void update(Artikel artikel){
         if (!exists(artikel.getIdArtikel())) throw new idArtikelBestaatNiet();
         if (artikel.getVoorraad()<0) throw new VoorraadNegatief(); 
         if (artikel.getNaam().isEmpty()) throw new ArtikelnaamLeeg();
@@ -115,7 +115,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void update(int idArtikel, String naam, BigDecimal prijs, int Voorraad)  throws Exception {
+    public void update(int idArtikel, String naam, BigDecimal prijs, int Voorraad){
         Artikel artikel = new Artikel();
         artikel.setIdArtikel(idArtikel);
         artikel.setNaam(naam);
@@ -125,7 +125,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void verhoogVoorraad(int idArtikel, int verhoog) throws Exception {
+    public void verhoogVoorraad(int idArtikel, int verhoog){
         System.out.println("Robert10 in verhoogvoorraad");
         Artikel artikelFound = artikelRepository.findOne(idArtikel);
         System.out.println("Robert11 in verhoogvoorraad");
@@ -139,7 +139,7 @@ public class ArtikelServiceImpl implements ArtikelService {
     }
 
     @Override
-    public void verlaagVoorraad(int idArtikel, int verlaag) throws Exception {
+    public void verlaagVoorraad(int idArtikel, int verlaag){
        verhoogVoorraad (idArtikel, -verlaag);
     }
     

@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class idBestellingNietBijIngelogdeAccount extends Exception {
+public class idBestellingNietBijIngelogdeAccount extends RuntimeException {
     
 }

@@ -95,7 +95,7 @@ public class WijzigKlantController {
 
     @RequestMapping(value = "/wijzigklant", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String wijzigKlantPost(Model model, HttpServletRequest request) throws Exception {
+    public String wijzigKlantPost(Model model, HttpServletRequest request){
         
         String idKlant = request.getParameter("idKlant");
         String voornaam = request.getParameter("voornaam");

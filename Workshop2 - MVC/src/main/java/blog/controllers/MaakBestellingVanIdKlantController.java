@@ -98,7 +98,7 @@ public class MaakBestellingVanIdKlantController {
 
     @RequestMapping(value = "/maaknieuwebestellingvanidklant", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String maakBestellingVanIdKlantPost(Model model, HttpServletRequest request) throws Exception {
+    public String maakBestellingVanIdKlantPost(Model model, HttpServletRequest request){
         
         String idKlant = request.getParameter("idKlant");
  

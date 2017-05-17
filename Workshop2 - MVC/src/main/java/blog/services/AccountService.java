@@ -12,8 +12,8 @@ import java.util.List;
  * @author robertrook
  */
 public interface AccountService {
-    void create (Account account) throws Exception;
-    void create (int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id) throws Exception;
+    void create (Account account);
+    void create (int idAccount, String gebruikersnaam, String wachtwoord, int accountype_id);
     Account read (int idAccount);
     Account read (Account account);
     List<Account> read (String gebruikersnaam, String password);

@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class idKlantBestaatNiet extends Exception {
+public class idKlantBestaatNiet extends RuntimeException {
     
 }

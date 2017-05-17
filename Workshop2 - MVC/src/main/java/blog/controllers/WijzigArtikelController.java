@@ -95,7 +95,7 @@ public class WijzigArtikelController {
 
     @RequestMapping(value = "/wijzigartikel", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String wijzigArtikelPost(Model model, HttpServletRequest request) throws Exception {
+    public String wijzigArtikelPost(Model model, HttpServletRequest request){
         
         
         String idArtikel = request.getParameter("idArtikel");

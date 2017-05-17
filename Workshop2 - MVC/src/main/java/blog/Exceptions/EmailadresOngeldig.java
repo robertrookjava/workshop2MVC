@@ -9,6 +9,6 @@ package blog.Exceptions;
  *
  * @author robertrook
  */
-public class EmailadresOngeldig extends Exception{
+public class EmailadresOngeldig extends RuntimeException{
     
 }

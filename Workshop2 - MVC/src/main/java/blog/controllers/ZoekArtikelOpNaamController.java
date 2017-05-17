@@ -94,7 +94,7 @@ public class ZoekArtikelOpNaamController {
 
     @RequestMapping(value = "/zoekartikelopnaam", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String zoekArtikelOpNaamPost(Model model, HttpServletRequest request) throws Exception {
+    public String zoekArtikelOpNaamPost(Model model, HttpServletRequest request){
         
         String naam = request.getParameter("naam");
 

@@ -98,7 +98,7 @@ public class VerwijderIdArtikelIdBestelling {
 
     @RequestMapping(value = "/verwijderidartikelidbestelling", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String verwijderIdArtikelIdBestellingPost(Model model, HttpServletRequest request) throws Exception {
+    public String verwijderIdArtikelIdBestellingPost(Model model, HttpServletRequest request){
         
         int idAccount = ingelogdeGebruiker.getIdAccountIngelogdeGebruiker();
         String idBestelling = request.getParameter("idBestelling");

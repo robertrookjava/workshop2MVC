@@ -94,7 +94,7 @@ public class VerwijderArtikelController {
 
     @RequestMapping(value = "/verwijderartikel", method = RequestMethod.POST)
     //ublic String aanmakenAccounttypePost(Model model, HttpServletRequest request) {
-    public String verwijderArtikelPost(Model model, HttpServletRequest request) throws Exception {
+    public String verwijderArtikelPost(Model model, HttpServletRequest request){
         
         String idArtikel = request.getParameter("idArtikel");
         
